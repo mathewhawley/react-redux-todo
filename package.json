@@ -2,14 +2,29 @@
   "private": true,
   "name": "react-redux-todo",
   "version": "0.0.0",
+  "engines": {
+    "node": ">= 6.0.0"
+  },
   "description": "A simple 'To Do' application, built using React and Redux",
-  "main": "src/server/index.js",
-  "scripts": {},
+  "main": "src/index.js",
+  "scripts": {
+    "eslint": "eslint src tools --cache",
+    "dev": "babel-node tools/devServer"
+  },
   "author": "Mathew Hawley",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
-    "eslint": "^3.6.0"
+    "babel-loader": "^6.2.5",
+    "babel-preset-latest": "^6.14.0",
+    "eslint": "^3.6.0",
+    "eslint-loader": "^1.5.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.11.6"
   }
 }

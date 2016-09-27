@@ -43,12 +43,12 @@ const config = {
   },
   devtool: 'source-map',
   plugins: [
-    new webpack.HotModuleReplacementPlugin({ multistep: true }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };
 
 const devServerConfig = {
-  contentBase: PATHS.src,
+  contentBase: PATHS.build,
   publicPath: PATHS.public,
   historyApiFallback: true,
   hot: true,

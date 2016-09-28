@@ -45,7 +45,9 @@
       "after": true
     }],
     "id-length": 1,
-    "indent": [1, 2],
+    "indent": [1, 2, {
+      SwitchCase: 1
+    }],
     "jsx-quotes": [1, "prefer-single"],
     "key-spacing": [1, {
       "mode": "strict"
@@ -122,7 +124,6 @@
     "no-param-reassign": [1, {
       "props": true
     }],
-    "no-plusplus": 1,
     "no-proto": 1,
     "no-redeclare": 1,
     "no-regex-spaces": 1,

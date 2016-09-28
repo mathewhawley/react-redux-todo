@@ -9,7 +9,9 @@
   "main": "src/index.js",
   "scripts": {
     "eslint": "eslint src tools --cache",
-    "dev": "babel-node tools/dev"
+    "dev": "babel-node tools/dev",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Mathew Hawley",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "del": "^2.2.2",
     "eslint": "^3.6.1",
     "eslint-loader": "^1.5.0",
+    "jest": "^15.1.1",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "webpack": "^1.13.2",

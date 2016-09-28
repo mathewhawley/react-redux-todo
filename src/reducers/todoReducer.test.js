@@ -10,7 +10,7 @@ describe('Reducer : Todo', () => {
         text: 'Hello, world!',
         id: 0,
         completed: false,
-      }
+      },
     ];
     const action = {
       type: 'UNKNOWN_ACTION',

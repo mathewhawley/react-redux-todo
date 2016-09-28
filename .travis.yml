@@ -6,6 +6,7 @@ script:
   - npm test
 branches:
   only:
+    - develop
     - master
 cache:
   directories:

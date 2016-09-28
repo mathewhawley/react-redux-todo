@@ -1,13 +1,9 @@
 import del from 'del';
-import mkdirp from 'mkdirp';
+import { makeDir } from './lib/fs';
 
 async function clean () {
   await del(['build']);
-  await new Promise((resolve, reject) => {
-    mkdirp('build', (err) => {
-      err ? reject(err) : resolve();
-    });
-  });
+  await makeDir('build');
 }
 
 export default clean;

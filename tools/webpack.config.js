@@ -5,7 +5,7 @@ const PATHS = {
   src: path.resolve(__dirname, '../src'),
   build: path.resolve(__dirname, '../build'),
   tools: path.resolve(__dirname, '../tools'),
-  public: '/assets/',
+  public: '/static/',
 };
 
 const config = {
@@ -58,7 +58,4 @@ const devServerConfig = {
   compress: true,
 };
 
-export {
-  config,
-  devServerConfig,
-};
+export { config, devServerConfig };

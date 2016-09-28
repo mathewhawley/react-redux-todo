@@ -11,7 +11,7 @@
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
     "test": "jest",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm test -- --watch"
   },
   "author": "Mathew Hawley",
   "license": "ISC",

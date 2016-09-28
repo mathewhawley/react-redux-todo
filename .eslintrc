@@ -14,9 +14,6 @@
   },
   "rules": {
     "array-bracket-spacing": 1,
-    "arrow-body-style": [1, "as-needed", {
-      "requireReturnForObjectLiteral": true
-    }],
     "arrow-parens": 1,
     "arrow-spacing": 1,
     "block-spacing": 1,

@@ -35,5 +35,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

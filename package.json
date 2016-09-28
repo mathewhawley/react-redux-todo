@@ -39,7 +39,13 @@
     "babel-runtime": "^6.11.6"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathDirs": ["src"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/constants/",
+      "<rootDir>/src/html/",
+      "<rootDir>/node_modules/"
+    ]
   },
   "pre-commit": [
     "pre-commit-msg",

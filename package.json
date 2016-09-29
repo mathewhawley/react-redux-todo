@@ -36,11 +36,14 @@
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
-    "babel-runtime": "^6.11.6"
+    "babel-runtime": "^6.11.6",
+    "redux": "^3.6.0"
   },
   "jest": {
     "testEnvironment": "node",
-    "testPathDirs": ["src"],
+    "testPathDirs": [
+      "src"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/src/constants/",
       "<rootDir>/src/html/",

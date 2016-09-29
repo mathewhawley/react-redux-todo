@@ -8,6 +8,3 @@ branches:
   only:
     - develop
     - master
-cache:
-  directories:
-    - node_modules

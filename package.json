@@ -11,7 +11,8 @@
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "pre-commit-msg": "echo 'Performing pre-commit checks...' && exit 0"
   },
   "author": "Mathew Hawley",
   "license": "ISC",
@@ -30,6 +31,7 @@
     "jest": "^15.1.1",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
+    "pre-commit": "^1.1.3",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
@@ -37,6 +39,17 @@
     "babel-runtime": "^6.11.6"
   },
   "jest": {
-    "testEnvironment": "node"
-  }
+    "testEnvironment": "node",
+    "testPathDirs": ["src"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/constants/",
+      "<rootDir>/src/html/",
+      "<rootDir>/node_modules/"
+    ]
+  },
+  "pre-commit": [
+    "pre-commit-msg",
+    "eslint",
+    "test"
+  ]
 }

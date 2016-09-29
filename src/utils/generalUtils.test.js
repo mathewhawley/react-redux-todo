@@ -110,10 +110,20 @@ describe('General Utilities', () => {
         },
       ];
       const action = {
-        type: 'UNRECOGNISED_ACTION',
+        type: 'UNRECOGNISED_CASE',
       };
 
       const sliceReducer = createReducer(initialState, handlers);
+
+      sliceReducer(currentState, action);
+
+      expect(
+        caseReducerOne
+      ).not.toBeCalled();
+
+      expect(
+        caseReducerTwo
+      ).not.toBeCalled();
 
       expect(
         sliceReducer(currentState, action)

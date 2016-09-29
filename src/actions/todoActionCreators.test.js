@@ -17,7 +17,7 @@ describe('ActionCreators : Todo', () => {
         addTodo(text)
       ).toEqual(action);
     });
-  })
+  });
 
   describe('toggleTodo', () => {
     it('should return a `toggle todo` action object', () => {

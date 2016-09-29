@@ -4,3 +4,15 @@ export const updateObject = (object, newValues) => {
     ...newValues,
   };
 };
+
+export const updateObjectInArray = (array, id, updateObjCallback) => {
+  const updatedArray = array.map((item) => {
+    if (item.id !== id) {
+      return item;
+    }
+
+    return updateObjCallback(item);
+  });
+
+  return updatedArray;
+};

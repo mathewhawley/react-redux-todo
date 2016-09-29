@@ -1,19 +1,35 @@
 /* eslint-env jest */
 
-import { addTodo } from './todoActionCreators';
-import { ADD_TODO } from '../constants/todoConstants';
+import { addTodo, toggleTodo } from './todoActionCreators';
+import * as constants from '../constants/todoConstants';
 
-describe('ActionCreators : Todo : addTodo', () => {
-  it('should return a `add todo` action object', () => {
-    const text = 'Hello, world!';
-    const action = {
-      type: ADD_TODO,
-      text,
-      id: 0,
-    };
+describe('ActionCreators : Todo', () => {
+  describe('addTodo', () => {
+    it('should return an `add todo` action object', () => {
+      const text = 'Hello, world!';
+      const action = {
+        type: constants.ADD_TODO,
+        text,
+        id: 0,
+      };
 
-    expect(
-      addTodo(text)
-    ).toEqual(action);
+      expect(
+        addTodo(text)
+      ).toEqual(action);
+    });
+  });
+
+  describe('toggleTodo', () => {
+    it('should return a `toggle todo` action object', () => {
+      const id = 0;
+      const action = {
+        type: constants.TOGGLE_TODO,
+        id,
+      };
+
+      expect(
+        toggleTodo(id)
+      ).toEqual(action);
+    });
   });
 });

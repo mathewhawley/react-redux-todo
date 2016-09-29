@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import { addTodo, toggleTodo } from './todoActionCreators';
 import * as constants from '../constants/todoConstants';
+import { addTodo, toggleTodo } from './todoActionCreators';
 
 describe('ActionCreators : Todo', () => {
   describe('addTodo', () => {

@@ -1,6 +1,10 @@
 /* eslint-env jest */
 
-import { updateObject, updateObjectInArray } from './generalUtils';
+import {
+  updateObject,
+  updateObjectInArray,
+  createReducer,
+} from './generalUtils';
 
 describe('General Utilities', () => {
   describe('updateObject', () => {
@@ -67,6 +71,53 @@ describe('General Utilities', () => {
           return updateObject(item, { text: 'Cras mattis consectetur purus sit amet fermentum.' });
         })
       ).toEqual(stateAfter);
+    });
+  });
+
+  describe('createReducer', () => {
+    it('should call the correct handler', () => {
+      const initialState = [];
+      const caseReducerOne = jest.fn();
+      const caseReducerTwo = jest.fn();
+      const handlers = {
+        CASE_ONE: caseReducerOne,
+        CASE_TWO: caseReducerTwo,
+      };
+      const action = {
+        type: 'CASE_TWO',
+      };
+      const sliceReducer = createReducer(initialState, handlers);
+
+      sliceReducer(undefined, action);
+
+      expect(
+        caseReducerTwo
+      ).toBeCalled();
+    });
+
+    it('should return the current state if no action is recognised', () => {
+      const initialState = [];
+      const caseReducerOne = jest.fn();
+      const caseReducerTwo = jest.fn();
+      const handlers = {
+        CASE_ONE: caseReducerOne,
+        CASE_TWO: caseReducerTwo,
+      };
+      const currentState = [
+        {
+          text: 'Hello, world!',
+          id: 0,
+        },
+      ];
+      const action = {
+        type: 'UNRECOGNISED_ACTION',
+      };
+
+      const sliceReducer = createReducer(initialState, handlers);
+
+      expect(
+        sliceReducer(currentState, action)
+      ).toEqual(currentState);
     });
   });
 });

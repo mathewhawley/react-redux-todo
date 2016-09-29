@@ -1,5 +1,10 @@
 import * as constants from '../constants/todoConstants';
-import { updateObject, updateObjectInArray } from '../utils/generalUtils';
+
+import {
+  updateObject,
+  updateObjectInArray,
+  createReducer,
+} from '../utils/generalUtils';
 
 const INITIAL_STATE = [];
 
@@ -20,13 +25,7 @@ const toggleTodo = (state, action) => {
   });
 };
 
-export const todoReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case constants.ADD_TODO:
-      return addTodo(state, action);
-    case constants.TOGGLE_TODO:
-      return toggleTodo(state, action);
-    default:
-      return state;
-  }
-};
+export const todoReducer = createReducer(INITIAL_STATE, {
+  [constants.ADD_TODO]: addTodo,
+  [constants.TOGGLE_TODO]: toggleTodo,
+});

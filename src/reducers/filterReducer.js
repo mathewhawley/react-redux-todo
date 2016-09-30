@@ -1,5 +1,5 @@
 import * as constants from '../constants/filterConstants';
-import { createReducer } from '../utils/generalUtils';
+import { createReducer } from '../utils';
 
 const INITIAL_STATE = 'SHOW_ALL';
 

@@ -2,7 +2,7 @@ import * as constants from '../constants/todoConstants';
 
 let idGen = 0;
 
-export const addTodo = (text) => {
+export const addTodoAction = (text) => {
   return {
     type: constants.ADD_TODO,
     text,
@@ -10,7 +10,7 @@ export const addTodo = (text) => {
   };
 };
 
-export const toggleTodo = (id) => {
+export const toggleTodoAction = (id) => {
   return {
     type: constants.TOGGLE_TODO,
     id,

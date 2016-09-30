@@ -4,7 +4,7 @@ import {
   updateObject,
   updateObjectInArray,
   createReducer,
-} from '../utils/generalUtils';
+} from '../utils';
 
 const INITIAL_STATE = [];
 

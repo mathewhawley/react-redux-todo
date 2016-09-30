@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import * as constants from '../constants/filterConstants';
-import { setFilter } from './filterActionCreators';
+import { setFilter } from './filterActions';
 
 describe('ActionCreators : Filter', () => {
   it('should return a `filter` action object', () => {

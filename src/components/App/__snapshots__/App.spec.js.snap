@@ -1,5 +1,0 @@
-exports[`<App /> Snapshots should render as expected 1`] = `
-<h1>
-  Hello, world
-</h1>
-`;

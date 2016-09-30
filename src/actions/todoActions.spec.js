@@ -3,8 +3,8 @@
 import * as constants from '../constants/todoConstants';
 import { addTodoAction, toggleTodoAction } from './todoActions';
 
-describe('ActionCreators : Todo', () => {
-  describe('addTodo', () => {
+describe('Actions', () => {
+  describe('addTodoAction', () => {
     it('should return an `add todo` action object', () => {
       const text = 'Hello, world!';
       const action = {
@@ -19,7 +19,7 @@ describe('ActionCreators : Todo', () => {
     });
   });
 
-  describe('toggleTodo', () => {
+  describe('toggleTodoAction', () => {
     it('should return a `toggle todo` action object', () => {
       const id = 0;
       const action = {

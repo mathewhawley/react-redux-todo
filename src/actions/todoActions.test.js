@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import * as constants from '../constants/todoConstants';
-import { addTodo, toggleTodo } from './todoActionCreators';
+import { addTodoAction, toggleTodoAction } from './todoActions';
 
 describe('ActionCreators : Todo', () => {
   describe('addTodo', () => {
@@ -14,7 +14,7 @@ describe('ActionCreators : Todo', () => {
       };
 
       expect(
-        addTodo(text)
+        addTodoAction(text)
       ).toEqual(action);
     });
   });
@@ -28,7 +28,7 @@ describe('ActionCreators : Todo', () => {
       };
 
       expect(
-        toggleTodo(id)
+        toggleTodoAction(id)
       ).toEqual(action);
     });
   });

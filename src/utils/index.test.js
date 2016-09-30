@@ -4,7 +4,7 @@ import {
   updateObject,
   updateObjectInArray,
   createReducer,
-} from './generalUtils';
+} from './index';
 
 describe('General Utilities', () => {
   describe('updateObject', () => {

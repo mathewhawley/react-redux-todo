@@ -6,7 +6,7 @@ import {
   createReducer,
 } from './index';
 
-describe('General Utilities', () => {
+describe('Utilities', () => {
   describe('updateObject', () => {
     it('should return a new object instance with updated/added values', () => {
       const originalObject = {
@@ -92,12 +92,22 @@ describe('General Utilities', () => {
       sliceReducer = createReducer(initialState, handlers);
     });
 
+    it('should return a closure', () => {
+      expect(
+        typeof sliceReducer
+      ).toBe('function');
+    });
+
     it('should call the correct handler', () => {
       const action = {
         type: 'CASE_TWO',
       };
 
       sliceReducer(undefined, action);
+
+      expect(
+        caseReducerOne
+      ).not.toBeCalled();
 
       expect(
         caseReducerTwo

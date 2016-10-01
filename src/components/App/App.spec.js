@@ -11,8 +11,8 @@ describe('<App />', () => {
       const wrapper = shallow(<App />);
 
       expect(
-        wrapper.contains(<h1>Hello, world</h1>)
-      ).toBeTruthy();
+        wrapper.find('h1').length
+      ).toBe(1);
     });
   });
 });

@@ -14,7 +14,7 @@ const TodoForm = ({ dispatch }) => {
       dispatch(addTodoAction(input.value));
       input.value = '';
     }}>
-      <input type='text' ref={(node) => { input = node; }}></input>
+      <input type='text' autoFocus={true} ref={(node) => { input = node; }} />
     </form>
   );
 };

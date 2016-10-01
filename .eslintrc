@@ -53,10 +53,6 @@
       "before": true,
       "after": true
     }],
-    "lines-around-comment": [1, {
-      "beforeBlockComment": true,
-      "beforeLineComment": true
-    }],
     "max-len": [1, 100],
     "new-cap": [1, {
       "newIsCap": true,

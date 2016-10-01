@@ -1,5 +1,5 @@
 {
   "private": true,
   "name": "TodoForm",
-  "main": "./TodoForm.js"
+  "main": "./TodoFormContainer.js"
 }

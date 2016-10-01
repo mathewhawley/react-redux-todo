@@ -1,16 +1,18 @@
 import React, { PropTypes } from 'react';
 
-export const TodoItem = ({ item }) => {
+const TodoItem = ({ todo }) => {
   return (
-    <li>{item.text}</li>
+    <li>{todo.text}</li>
   );
 };
 
 TodoItem.displayName = 'TodoItem';
 TodoItem.propTypes = {
-  item: PropTypes.shape({
+  todo: PropTypes.shape({
     text: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
   }),
 };
+
+export default TodoItem;

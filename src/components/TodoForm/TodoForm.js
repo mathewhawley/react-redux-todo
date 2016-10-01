@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import { addTodoAction } from '../../actions/todoActions';
 
-export const TodoForm = ({ dispatch }) => {
+const TodoForm = ({ dispatch }) => {
   let input;
 
   return (
@@ -25,4 +24,4 @@ TodoForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export default connect()(TodoForm);
+export default TodoForm;

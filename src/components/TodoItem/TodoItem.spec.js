@@ -3,9 +3,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { TodoItem } from './TodoItem';
+import TodoItem from './TodoItem';
 
-const mockItem = (overrides) => {
+const mockTodo = (overrides) => {
   return {
     text: 'Hello, world',
     id: 0,
@@ -16,11 +16,11 @@ const mockItem = (overrides) => {
 
 describe('<TodoItem />', () => {
   it('renders the text of the todo', () => {
-    const item = mockItem();
-    const wrapper = shallow(<TodoItem item={item} />);
+    const todo = mockTodo();
+    const wrapper = shallow(<TodoItem todo={todo} />);
 
     expect(
       wrapper.text()
-    ).to.contain(item.text);
+    ).to.contain(todo.text);
   });
 });

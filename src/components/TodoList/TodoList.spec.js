@@ -3,10 +3,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { TodoList } from './TodoList';
+import TodoList from './TodoList';
 
 let id = 0;
-const mockItem = (overrides) => {
+const mockTodo = (overrides) => {
   return {
     text: 'Hello, world',
     id: id++,
@@ -16,12 +16,12 @@ const mockItem = (overrides) => {
 };
 
 describe('<TodoList />', () => {
-  it('renders the list of items', () => {
-    const items = [mockItem(), mockItem(), mockItem()];
-    const wrapper = shallow(<TodoList items={items} />);
+  it('renders the list of todos', () => {
+    const todos = [mockTodo(), mockTodo(), mockTodo()];
+    const wrapper = shallow(<TodoList todos={todos} />);
 
     expect(
       wrapper.find('ul').children()
-    ).to.have.length(items.length);
+    ).to.have.length(todos.length);
   });
 });

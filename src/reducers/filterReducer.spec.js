@@ -1,5 +1,6 @@
-/* eslint-env jest */
+/* eslint-env mocha */
 
+import { expect } from 'chai';
 import * as constants from '../constants/filterConstants';
 import { filterReducer } from './filterReducer';
 
@@ -16,7 +17,7 @@ describe('Reducers', () => {
 
       expect(
         filterReducer(stateBefore, action)
-      ).toEqual(stateBefore);
+      ).to.deep.equal(stateBefore);
     });
 
     it('should update the state with a new filter', () => {
@@ -31,7 +32,7 @@ describe('Reducers', () => {
 
       expect(
         filterReducer(stateBefore, action)
-      ).toEqual(stateAfter);
+      ).to.deep.equal(stateAfter);
     });
   });
 });

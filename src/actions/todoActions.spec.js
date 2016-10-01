@@ -1,5 +1,6 @@
-/* eslint-env jest */
+/* eslint-env mocha */
 
+import { expect } from 'chai';
 import * as constants from '../constants/todoConstants';
 import { addTodoAction, toggleTodoAction } from './todoActions';
 
@@ -15,7 +16,7 @@ describe('Actions', () => {
 
       expect(
         addTodoAction(text)
-      ).toEqual(action);
+      ).to.deep.equal(action);
     });
   });
 
@@ -29,7 +30,7 @@ describe('Actions', () => {
 
       expect(
         toggleTodoAction(id)
-      ).toEqual(action);
+      ).to.deep.equal(action);
     });
   });
 });

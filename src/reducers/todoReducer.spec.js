@@ -1,5 +1,6 @@
-/* eslint-env jest */
+/* eslint-env mocha */
 
+import { expect } from 'chai';
 import * as constants from '../constants/todoConstants';
 import { todoReducer } from './todoReducer';
 
@@ -24,7 +25,7 @@ describe('Reducers', () => {
 
       expect(
         todoReducer(stateBefore, action)
-      ).toEqual(stateBefore);
+      ).to.deep.equal(stateBefore);
     });
 
     it('should update the state with a new todo', () => {
@@ -47,7 +48,7 @@ describe('Reducers', () => {
 
       expect(
         todoReducer(stateBefore, action)
-      ).toEqual(stateAfter);
+      ).to.deep.equal(stateAfter);
     });
 
     it('should toggle `completed` field of specified todo', () => {
@@ -85,7 +86,7 @@ describe('Reducers', () => {
 
       expect(
         todoReducer(stateBefore, action)
-      ).toEqual(stateAfter);
+      ).to.deep.equal(stateAfter);
     });
   });
 });

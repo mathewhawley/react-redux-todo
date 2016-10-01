@@ -1,9 +1,16 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import TodoForm from '../TodoForm';
+import TodoList from '../TodoList';
 
-export const App = (props) => {
-  return <h1>{props.children}</h1>;
+const App = () => {
+  return (
+    <div>
+      <TodoForm />
+      <TodoList />
+    </div>
+  );
 };
 
-App.propTypes = {
-  children: PropTypes.any,
-};
+App.displayName = 'App';
+
+export default App;

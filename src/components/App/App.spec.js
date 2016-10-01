@@ -1,18 +1,16 @@
-/* eslint-env jest */
+/* eslint-env mocha */
 
 import React from 'react';
 import { shallow } from 'enzyme';
-
-import { App } from './App';
+import { expect } from 'chai';
+import App from './App';
 
 describe('<App />', () => {
-  describe('Shallow Rendering', () => {
-    it('should render an <h1>', () => {
-      const wrapper = shallow(<App />);
+  it('should render some child elements', () => {
+    const wrapper = shallow(<App />);
 
-      expect(
-        wrapper.find('h1').length
-      ).toBe(1);
-    });
+    expect(
+      wrapper.children().length
+    ).to.be.above(0);
   });
 });

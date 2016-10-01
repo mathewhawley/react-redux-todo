@@ -1,5 +1,4 @@
 import * as constants from '../constants/todoConstants';
-
 import {
   updateObject,
   updateObjectInArray,

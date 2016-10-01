@@ -1,7 +1,6 @@
 /* eslint-env mocha */
 
 import { expect } from 'chai';
-
 import * as constants from '../constants/filterConstants';
 import { setFilterAction } from './filterActions';
 

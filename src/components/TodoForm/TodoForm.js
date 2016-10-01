@@ -8,7 +8,6 @@ export const TodoForm = ({ dispatch }) => {
   return (
     <form onSubmit={(event) => {
       event.preventDefault();
-
       if (!input.value.trim()) {
         return;
       }

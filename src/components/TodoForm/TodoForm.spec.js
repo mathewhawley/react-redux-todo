@@ -6,7 +6,7 @@ import { expect } from 'chai';
 import { TodoForm } from './TodoForm';
 
 describe('<TodoForm />', () => {
-  it('should contain an <input>', () => {
+  it('should have an input field', () => {
     const wrapper = shallow(<TodoForm />);
 
     expect(

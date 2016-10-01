@@ -6,7 +6,7 @@ import {
   createReducer,
 } from './index';
 
-describe('General Utilities', () => {
+describe('Utilities', () => {
   describe('updateObject', () => {
     it('should return a new object instance with updated/added values', () => {
       const originalObject = {
@@ -75,20 +75,39 @@ describe('General Utilities', () => {
   });
 
   describe('createReducer', () => {
-    it('should call the correct handler', () => {
-      const initialState = [];
-      const caseReducerOne = jest.fn();
-      const caseReducerTwo = jest.fn();
-      const handlers = {
+    let initialState;
+    let caseReducerOne;
+    let caseReducerTwo;
+    let handlers;
+    let sliceReducer;
+
+    beforeEach(() => {
+      initialState = [];
+      caseReducerOne = jest.fn();
+      caseReducerTwo = jest.fn();
+      handlers = {
         CASE_ONE: caseReducerOne,
         CASE_TWO: caseReducerTwo,
       };
+      sliceReducer = createReducer(initialState, handlers);
+    });
+
+    it('should return a closure', () => {
+      expect(
+        typeof sliceReducer
+      ).toBe('function');
+    });
+
+    it('should call the correct handler', () => {
       const action = {
         type: 'CASE_TWO',
       };
-      const sliceReducer = createReducer(initialState, handlers);
 
       sliceReducer(undefined, action);
+
+      expect(
+        caseReducerOne
+      ).not.toBeCalled();
 
       expect(
         caseReducerTwo
@@ -96,13 +115,6 @@ describe('General Utilities', () => {
     });
 
     it('should return the current state if no action is recognised', () => {
-      const initialState = [];
-      const caseReducerOne = jest.fn();
-      const caseReducerTwo = jest.fn();
-      const handlers = {
-        CASE_ONE: caseReducerOne,
-        CASE_TWO: caseReducerTwo,
-      };
       const currentState = [
         {
           text: 'Hello, world!',
@@ -112,8 +124,6 @@ describe('General Utilities', () => {
       const action = {
         type: 'UNRECOGNISED_CASE',
       };
-
-      const sliceReducer = createReducer(initialState, handlers);
 
       sliceReducer(currentState, action);
 

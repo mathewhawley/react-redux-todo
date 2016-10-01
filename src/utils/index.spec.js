@@ -1,4 +1,7 @@
-/* eslint-env jest */
+/* eslint-env mocha */
+
+import { expect } from 'chai';
+import sinon from 'sinon';
 
 import {
   updateObject,
@@ -28,7 +31,7 @@ describe('Utilities', () => {
 
       expect(
         updateObject(originalObject, newValues)
-      ).toEqual(updatedObject);
+      ).to.deep.equal(updatedObject);
     });
   });
 
@@ -70,32 +73,32 @@ describe('Utilities', () => {
         updateObjectInArray(stateBefore, id, (item) => {
           return updateObject(item, { text: 'Cras mattis consectetur purus sit amet fermentum.' });
         })
-      ).toEqual(stateAfter);
+      ).to.deep.equal(stateAfter);
     });
   });
 
   describe('createReducer', () => {
     let initialState;
-    let caseReducerOne;
-    let caseReducerTwo;
+    let spyOne;
+    let spyTwo;
     let handlers;
     let sliceReducer;
 
     beforeEach(() => {
       initialState = [];
-      caseReducerOne = jest.fn();
-      caseReducerTwo = jest.fn();
+      spyOne = sinon.spy();
+      spyTwo = sinon.spy();
       handlers = {
-        CASE_ONE: caseReducerOne,
-        CASE_TWO: caseReducerTwo,
+        CASE_ONE: spyOne,
+        CASE_TWO: spyTwo,
       };
       sliceReducer = createReducer(initialState, handlers);
     });
 
-    it('should return a closure', () => {
+    it('should return a function', () => {
       expect(
-        typeof sliceReducer
-      ).toBe('function');
+        sliceReducer
+      ).to.be.instanceof(Function);
     });
 
     it('should call the correct handler', () => {
@@ -106,12 +109,12 @@ describe('Utilities', () => {
       sliceReducer(undefined, action);
 
       expect(
-        caseReducerOne
-      ).not.toBeCalled();
+        spyOne.calledOnce
+      ).to.be.false;
 
       expect(
-        caseReducerTwo
-      ).toBeCalled();
+        spyTwo.calledOnce
+      ).to.be.true;
     });
 
     it('should return the current state if no action is recognised', () => {
@@ -128,16 +131,16 @@ describe('Utilities', () => {
       sliceReducer(currentState, action);
 
       expect(
-        caseReducerOne
-      ).not.toBeCalled();
+        spyOne.calledOnce
+      ).to.be.false;
 
       expect(
-        caseReducerTwo
-      ).not.toBeCalled();
+        spyTwo.calledOnce
+      ).to.be.false;
 
       expect(
         sliceReducer(currentState, action)
-      ).toEqual(currentState);
+      ).to.deep.equal(currentState);
     });
   });
 });

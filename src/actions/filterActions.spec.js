@@ -1,4 +1,6 @@
-/* eslint-env jest */
+/* eslint-env mocha */
+
+import { expect } from 'chai';
 
 import * as constants from '../constants/filterConstants';
 import { setFilterAction } from './filterActions';
@@ -14,7 +16,7 @@ describe('Actions', () => {
 
       expect(
         setFilterAction(filter)
-      ).toEqual(action);
+      ).to.deep.equal(action);
     });
   });
 });

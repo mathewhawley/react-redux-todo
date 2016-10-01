@@ -1,22 +1,27 @@
-/* eslint-env jest */
+/* eslint-env mocha */
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import { expect } from 'chai';
 
 import { TodoItem } from './TodoItem';
 
+const mockItem = (overrides) => {
+  return {
+    text: 'Hello, world',
+    id: 0,
+    completed: false,
+    ...overrides,
+  };
+};
+
 describe('<TodoItem />', () => {
-  describe('Shallow rendering', () => {
-    let wrapper;
+  it('renders the text of the todo', () => {
+    const item = mockItem();
+    const wrapper = shallow(<TodoItem item={item} />);
 
-    beforeEach(() => {
-      wrapper = shallow(<TodoItem />);
-    });
-
-    it('should render an <li> element', () => {
-      expect(
-        wrapper.find('li').length
-      ).toBe(1);
-    });
+    expect(
+      wrapper.text()
+    ).to.contain(item.text);
   });
 });

@@ -2,22 +2,22 @@ import React, { PropTypes } from 'react';
 import { addTodoAction } from '../../actions/todoActions';
 
 export const TodoForm = ({ dispatch }) => {
-  let input;
-
   return (
-    <form onSubmit={(event) => {
-      event.preventDefault();
-      if (!input.value.trim()) {
-        return;
-      }
-
-      dispatch(addTodoAction(input.value));
-      input.value = '';
-    }}>
+    <form onSubmit={(event) => event.preventDefault()}>
       <input
         type='text'
         autoFocus={true}
-        ref={(node) => input = node} // eslint-disable-line no-return-assign
+        onKeyPress={
+          (event) => {
+            const { charCode, target } = event;
+
+            if (charCode === 13 && target.value.trim()) {
+              dispatch(addTodoAction(target.value));
+              // eslint-disable-next-line no-param-reassign
+              target.value = '';
+            }
+          }
+        }
       />
     </form>
   );

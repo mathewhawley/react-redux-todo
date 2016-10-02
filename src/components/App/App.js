@@ -1,13 +1,13 @@
 import React from 'react';
-import TodoForm from '../TodoForm';
-import TodoList from '../TodoList';
-import Filter from '../Filter';
+import { TodoFormContainer } from '../TodoForm/TodoFormContainer';
+import { TodoListContainer } from '../TodoList/TodoListContainer';
+import { Filter } from '../Filter';
 
 const App = () => {
   return (
     <div>
-      <TodoForm />
-      <TodoList />
+      <TodoFormContainer />
+      <TodoListContainer />
       <Filter />
     </div>
   );

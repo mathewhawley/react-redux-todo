@@ -8,4 +8,4 @@ const mapDispatchToProps = (dispatch, props) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(FilterLink);
+export const FilterLinkContainer = connect(null, mapDispatchToProps)(FilterLink);

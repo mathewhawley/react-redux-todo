@@ -1,23 +1,21 @@
 import React from 'react';
-import FilterLink from '../FilterLink';
+import { FilterLinkContainer } from '../FilterLink/FilterLinkContainer';
 import { FILTERS } from '../../constants/filterConstants';
 
-const Filter = () => {
+export const Filter = () => {
   return (
     <ul>
-      <FilterLink filter={FILTERS.SHOW_ALL}>
+      <FilterLinkContainer filter={FILTERS.SHOW_ALL}>
         All
-      </FilterLink>
-      <FilterLink filter={FILTERS.SHOW_ACTIVE}>
+      </FilterLinkContainer>
+      <FilterLinkContainer filter={FILTERS.SHOW_ACTIVE}>
         Active
-      </FilterLink>
-      <FilterLink filter={FILTERS.SHOW_COMPLETED}>
+      </FilterLinkContainer>
+      <FilterLinkContainer filter={FILTERS.SHOW_COMPLETED}>
         Completed
-      </FilterLink>
+      </FilterLinkContainer>
     </ul>
   );
 };
 
 Filter.displayName = 'Filter';
-
-export default Filter;

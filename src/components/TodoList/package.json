@@ -1,5 +1,5 @@
 {
   "private": true,
   "name": "TodoList",
-  "main": "./TodoListContainer.js"
+  "main": "./TodoList.js"
 }

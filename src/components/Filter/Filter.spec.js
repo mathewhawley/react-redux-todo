@@ -6,11 +6,11 @@ import { expect } from 'chai';
 import Filter from './Filter';
 
 describe('<Filter />', () => {
-  it('should render a list', () => {
+  it('should render a list of filters', () => {
     const wrapper = shallow(<Filter />);
 
     expect(
-      wrapper.find('ul').length
+      wrapper.find('ul').children().length
     ).to.be.above(0);
   });
 });

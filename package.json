@@ -10,8 +10,8 @@
   "scripts": {
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
-    "test": "mocha 'src/**/*.spec.js' --compilers js:babel-register --reporter min",
-    "test:watch": "npm test -- --watch",
+    "test": "mocha 'src/**/*.spec.js' --compilers js:babel-register",
+    "test:watch": "npm test -- --watch --reporter min",
     "pre-commit-msg": "echo 'Performing pre-commit checks...' && exit 0"
   },
   "author": "Mathew Hawley",

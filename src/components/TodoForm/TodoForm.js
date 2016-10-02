@@ -14,7 +14,11 @@ const TodoForm = ({ dispatch }) => {
       dispatch(addTodoAction(input.value));
       input.value = '';
     }}>
-      <input type='text' autoFocus={true} ref={(node) => { input = node; }} />
+      <input
+        type='text'
+        autoFocus={true}
+        ref={(node) => input = node} // eslint-disable-line no-return-assign
+      />
     </form>
   );
 };

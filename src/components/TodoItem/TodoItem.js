@@ -1,18 +1,17 @@
 import React, { PropTypes } from 'react';
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ text, handleClick }) => {
   return (
-    <li>{todo.text}</li>
+    <li onClick={handleClick}>
+      {text}
+    </li>
   );
 };
 
 TodoItem.displayName = 'TodoItem';
 TodoItem.propTypes = {
-  todo: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired,
-  }),
+  text: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

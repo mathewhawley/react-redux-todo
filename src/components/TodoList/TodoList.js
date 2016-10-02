@@ -1,10 +1,18 @@
 import React, { PropTypes } from 'react';
 import TodoItem from '../TodoItem';
 
-export const TodoList = ({ todos }) => {
+export const TodoList = ({ todos, handleClick }) => {
   return (
     <ul>
-      {todos.map((todo) => <TodoItem key={todo.id} todo={todo}/>)}
+      {todos.map((todo) => {
+        return (
+          <TodoItem
+            key={todo.id}
+            {...todo}
+            handleClick={() => handleClick(todo.id)}
+          />
+        );
+      })}
     </ul>
   );
 };
@@ -16,4 +24,5 @@ TodoList.propTypes = {
     id: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
   })),
+  handleClick: PropTypes.func.isRequired,
 };

@@ -4,6 +4,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { v4 } from 'node-uuid';
+import sinon from 'sinon';
 import TodoItem from './TodoItem';
 
 const mockTodo = (overrides) => {
@@ -18,10 +19,12 @@ const mockTodo = (overrides) => {
 describe('<TodoItem />', () => {
   let wrapper;
   let todo;
+  let spy;
 
   beforeEach(() => {
+    spy = sinon.spy();
     todo = mockTodo();
-    wrapper = shallow(<TodoItem todo={todo} />);
+    wrapper = shallow(<TodoItem {...todo} handleClick={spy} />);
   });
 
   it('renders the text of the todo', () => {
@@ -32,5 +35,9 @@ describe('<TodoItem />', () => {
 
   it('should toggle when clicked', () => {
     wrapper.find('li').simulate('click');
+
+    expect(
+      spy.calledOnce
+    ).to.be.true;
   });
 });

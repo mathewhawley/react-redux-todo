@@ -24,7 +24,7 @@ describe('<TodoForm />', () => {
   it('should have an input field', () => {
     expect(
       wrapper.find('input')
-    ).to.have.length(1);
+    ).to.exist;
   });
 
   it('should prevent default `submit` behaviour', () => {

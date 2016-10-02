@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react';
 
-export const FilterLink = ({ onClick, children }) => {
+export const FilterLink = ({ active, setFilter, children }) => {
+  if (active) {
+    return <li>{children}</li>;
+  }
+
   return (
     <li>
       <a href='#' onClick={(event) => {
         event.preventDefault();
-        onClick();
+        setFilter();
       }}>
         {children}
       </a>
@@ -15,6 +19,7 @@ export const FilterLink = ({ onClick, children }) => {
 
 FilterLink.displayName = 'FilterLink';
 FilterLink.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
 };

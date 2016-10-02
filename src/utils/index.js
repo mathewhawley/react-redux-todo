@@ -1,9 +1,7 @@
-export const updateObject = (object, newValues) => {
-  return {
-    ...object,
-    ...newValues,
-  };
-};
+export const updateObject = (object, newValues) => ({
+  ...object,
+  ...newValues,
+});
 
 export const updateObjectInArray = (array, id, updateObjCallback) => {
   const updatedArray = array.map((item) => {

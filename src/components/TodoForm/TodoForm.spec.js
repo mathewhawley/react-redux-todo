@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import TodoForm from './TodoForm';
+import { TodoForm } from './TodoForm';
 
 describe('<TodoForm />', () => {
   it('should have an input field', () => {

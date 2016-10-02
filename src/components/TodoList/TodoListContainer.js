@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import TodoList from './TodoList';
+import { TodoList } from './TodoList';
 
 const getTodos = (state) => {
   return state.todos;

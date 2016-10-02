@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import TodoItem from '../TodoItem';
 
-const TodoList = ({ todos }) => {
+export const TodoList = ({ todos }) => {
   return (
     <ul>
       {todos.map((todo) => <TodoItem key={todo.id} todo={todo}/>)}
@@ -17,5 +17,3 @@ TodoList.propTypes = {
     completed: PropTypes.bool.isRequired,
   })),
 };
-
-export default TodoList;

@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 
 import { expect } from 'chai';
+import { v4 } from 'node-uuid';
 import * as constants from '../constants/todoConstants';
 import { todoReducer } from './todoReducer';
 
@@ -9,14 +10,14 @@ describe('todoReducer', () => {
     const stateBefore = [
       {
         text: 'Hello, world!',
-        id: 0,
+        id: v4(),
         completed: false,
       },
     ];
     const action = {
       type: 'UNRECOGNISED_ACTION',
       text: 'Go shopping',
-      id: 1,
+      id: v4(),
     };
 
     Object.freeze(stateBefore);
@@ -28,16 +29,17 @@ describe('todoReducer', () => {
   });
 
   it('should update the state with a new todo', () => {
+    const id = v4();
     const stateBefore = [];
     const action = {
       type: constants.ADD_TODO,
       text: 'Hello, world!',
-      id: 0,
+      id,
     };
     const stateAfter = [
       {
         text: 'Hello, world!',
-        id: 0,
+        id,
         completed: false,
       },
     ];
@@ -51,31 +53,32 @@ describe('todoReducer', () => {
   });
 
   it('should toggle `completed` field of specified todo', () => {
+    const ids = [v4(), v4()];
     const stateBefore = [
       {
         text: 'Hello, world',
-        id: 0,
+        id: ids[0],
         completed: false,
       },
       {
         text: 'Learn React and Redux',
-        id: 1,
+        id: ids[1],
         completed: false,
       },
     ];
     const action = {
       type: constants.TOGGLE_TODO,
-      id: 1,
+      id: ids[1],
     };
     const stateAfter = [
       {
         text: 'Hello, world',
-        id: 0,
+        id: ids[0],
         completed: false,
       },
       {
         text: 'Learn React and Redux',
-        id: 1,
+        id: ids[1],
         completed: true,
       },
     ];

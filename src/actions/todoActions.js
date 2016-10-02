@@ -1,12 +1,11 @@
+import { v4 } from 'node-uuid';
 import * as constants from '../constants/todoConstants';
-
-let idGen = 0;
 
 export const addTodoAction = (text) => {
   return {
     type: constants.ADD_TODO,
     text,
-    id: idGen++,
+    id: v4(),
   };
 };
 

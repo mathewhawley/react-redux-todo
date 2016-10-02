@@ -3,13 +3,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import { v4 } from 'node-uuid';
 import { TodoList } from './TodoList';
 
-let id = 0;
 const mockTodo = (overrides) => {
   return {
     text: 'Hello, world',
-    id: id++,
+    id: v4(),
     completed: false,
     ...overrides,
   };

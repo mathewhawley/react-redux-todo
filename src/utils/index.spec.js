@@ -2,6 +2,7 @@
 
 import { expect } from 'chai';
 import sinon from 'sinon';
+import { v4 } from 'node-uuid';
 import {
   updateObject,
   updateObjectInArray,
@@ -11,10 +12,11 @@ import {
 describe('Utilities', () => {
   describe('updateObject', () => {
     it('should return a new object instance with updated/added values', () => {
+      const id = v4();
       const originalObject = {
         text: 'This is a test',
         updated: false,
-        id: 0,
+        id,
       };
       const newValues = {
         text: 'The text has been updated!',
@@ -23,7 +25,7 @@ describe('Utilities', () => {
       const updatedObject = {
         text: 'The text has been updated!',
         updated: true,
-        id: 0,
+        id,
       };
 
       Object.freeze(originalObject);
@@ -36,32 +38,32 @@ describe('Utilities', () => {
 
   describe('updateObjectInArray', () => {
     it('should update a specified object`s properties in an array', () => {
+      const ids = [v4(), v4(), v4()];
       const stateBefore = [
         {
-          id: 0,
+          id: ids[0],
           text: 'Nulla vitae elit libero, a pharetra augue.',
         },
         {
-          id: 1,
+          id: ids[1],
           text: 'Maecenas faucibus mollis interdum.',
         },
         {
-          id: 2,
+          id: ids[2],
           text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur et.',
         },
       ];
-      const id = 2;
       const stateAfter = [
         {
-          id: 0,
+          id: ids[0],
           text: 'Nulla vitae elit libero, a pharetra augue.',
         },
         {
-          id: 1,
+          id: ids[1],
           text: 'Maecenas faucibus mollis interdum.',
         },
         {
-          id: 2,
+          id: ids[2],
           text: 'Cras mattis consectetur purus sit amet fermentum.',
         },
       ];
@@ -69,7 +71,7 @@ describe('Utilities', () => {
       Object.freeze(stateBefore);
 
       expect(
-        updateObjectInArray(stateBefore, id, (item) => {
+        updateObjectInArray(stateBefore, ids[2], (item) => {
           return updateObject(item, { text: 'Cras mattis consectetur purus sit amet fermentum.' });
         })
       ).to.deep.equal(stateAfter);
@@ -120,7 +122,7 @@ describe('Utilities', () => {
       const currentState = [
         {
           text: 'Hello, world!',
-          id: 0,
+          id: v4(),
         },
       ];
       const action = {

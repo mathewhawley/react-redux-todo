@@ -13,7 +13,7 @@ TodoList.displayName = 'TodoList';
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
   })),
 };

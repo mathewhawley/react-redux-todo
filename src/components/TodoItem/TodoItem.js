@@ -10,7 +10,7 @@ TodoItem.displayName = 'TodoItem';
 TodoItem.propTypes = {
   todo: PropTypes.shape({
     text: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
   }),
 };

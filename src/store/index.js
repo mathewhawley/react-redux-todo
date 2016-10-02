@@ -1,8 +1,15 @@
 import { createStore } from 'redux';
 import { rootReducer } from '../reducers';
+import { loadState, saveState } from '../lib/localStorage';
 
-export const configureStore = (initialState) => {
-  const store = createStore(rootReducer, initialState);
+export const configureStore = () => {
+  const store = createStore(rootReducer, loadState());
+
+  store.subscribe(() => {
+    saveState({
+      todos: store.getState().todos,
+    });
+  });
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

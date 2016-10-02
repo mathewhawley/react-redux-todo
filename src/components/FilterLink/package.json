@@ -1,5 +1,5 @@
 {
   "private": true,
   "name": "FilterLink",
-  "main": "./FilterLink.js"
+  "main": "./FilterLinkContainer.js"
 }

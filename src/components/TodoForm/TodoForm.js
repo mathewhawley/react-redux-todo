@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { addTodoAction } from '../../actions/todoActions';
 
-const TodoForm = ({ dispatch }) => {
+export const TodoForm = ({ dispatch }) => {
   let input;
 
   return (
@@ -27,5 +27,3 @@ TodoForm.displayName = 'TodoForm';
 TodoForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
-
-export default TodoForm;

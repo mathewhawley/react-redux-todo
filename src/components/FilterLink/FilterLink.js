@@ -2,12 +2,14 @@ import React, { PropTypes } from 'react';
 
 export const FilterLink = ({ onClick, children }) => {
   return (
-    <a href='#' onClick={(event) => {
-      event.preventDefault();
-      onClick();
-    }}>
-      {children}
-    </a>
+    <li>
+      <a href='#' onClick={(event) => {
+        event.preventDefault();
+        onClick();
+      }}>
+        {children}
+      </a>
+    </li>
   );
 };
 

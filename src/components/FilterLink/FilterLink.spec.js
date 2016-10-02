@@ -8,11 +8,12 @@ import { FilterLink } from './FilterLink';
 
 describe('<FilterLink />', () => {
   it('should render it`s given text', () => {
-    const wrapper = shallow(<FilterLink>Completed</FilterLink>);
+    const text = 'Completed';
+    const wrapper = shallow(<FilterLink>{text}</FilterLink>);
 
     expect(
       wrapper.text()
-    ).to.contain('Completed');
+    ).to.contain(text);
   });
 
   it('should call it`s given handler when clicked', () => {

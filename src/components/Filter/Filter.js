@@ -18,4 +18,6 @@ const Filter = () => {
   );
 };
 
+Filter.displayName = 'Filter';
+
 export default Filter;

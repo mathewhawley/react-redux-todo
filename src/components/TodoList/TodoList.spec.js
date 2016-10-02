@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import TodoList from './TodoList';
+import { TodoList } from './TodoList';
 
 let id = 0;
 const mockTodo = (overrides) => {

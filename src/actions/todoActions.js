@@ -7,6 +7,11 @@ export const addTodoAction = (text) => ({
   id: v4(),
 });
 
+export const deleteTodoAction = (id) => ({
+  type: constants.DELETE_TODO,
+  id,
+});
+
 export const toggleTodoAction = (id) => ({
   type: constants.TOGGLE_TODO,
   id,

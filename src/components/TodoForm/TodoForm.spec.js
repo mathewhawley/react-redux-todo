@@ -9,7 +9,7 @@ import { TodoForm } from './TodoForm';
 describe('<TodoForm />', () => {
   let spy;
   let wrapper;
-  let event = {
+  const event = {
     charCode: 13,
     target: {
       value: 'Hello, world',

@@ -18,6 +18,14 @@ const addTodo = (state, action) => {
   ];
 };
 
+const deleteTodo = (state, action) => {
+  return state.filter((todo) => {
+    if (todo.id !== action.id) {
+      return todo;
+    }
+  });
+};
+
 const toggleTodo = (state, action) => {
   return updateObjectInArray(state, action.id, (item) => {
     return updateObject(item, { completed: !item.completed });
@@ -26,5 +34,6 @@ const toggleTodo = (state, action) => {
 
 export const todoReducer = createReducer(INITIAL_STATE, {
   [constants.ADD_TODO]: addTodo,
+  [constants.DELETE_TODO]: deleteTodo,
   [constants.TOGGLE_TODO]: toggleTodo,
 });

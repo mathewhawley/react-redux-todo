@@ -6,22 +6,30 @@ import * as constants from '../constants/todoConstants';
 import { todoReducer } from './todoReducer';
 
 describe('todoReducer', () => {
+  const ids = [v4(), v4()];
+  const stateBefore = [
+    {
+      text: 'Hello, world',
+      id: ids[0],
+      completed: false,
+    },
+    {
+      text: 'Learn React and Redux',
+      id: ids[1],
+      completed: false,
+    },
+  ];
+
+  beforeEach(() => {
+    Object.freeze(stateBefore);
+  });
+
   it('should return the current state when the action is unrecognised', () => {
-    const stateBefore = [
-      {
-        text: 'Hello, world!',
-        id: v4(),
-        completed: false,
-      },
-    ];
     const action = {
       type: 'UNRECOGNISED_ACTION',
       text: 'Go shopping',
       id: v4(),
     };
-
-    Object.freeze(stateBefore);
-    Object.freeze(action);
 
     expect(
       todoReducer(stateBefore, action)
@@ -30,31 +38,12 @@ describe('todoReducer', () => {
 
   it('should update the state with a new todo', () => {
     const id = v4();
-    const stateBefore = [];
     const action = {
       type: constants.ADD_TODO,
-      text: 'Hello, world!',
+      text: 'Learn unit testing',
       id,
     };
     const stateAfter = [
-      {
-        text: 'Hello, world!',
-        id,
-        completed: false,
-      },
-    ];
-
-    Object.freeze(stateBefore);
-    Object.freeze(action);
-
-    expect(
-      todoReducer(stateBefore, action)
-    ).to.deep.equal(stateAfter);
-  });
-
-  it('should toggle `completed` field of specified todo', () => {
-    const ids = [v4(), v4()];
-    const stateBefore = [
       {
         text: 'Hello, world',
         id: ids[0],
@@ -65,7 +54,37 @@ describe('todoReducer', () => {
         id: ids[1],
         completed: false,
       },
+      {
+        text: 'Learn unit testing',
+        id,
+        completed: false,
+      },
     ];
+
+    expect(
+      todoReducer(stateBefore, action)
+    ).to.deep.equal(stateAfter);
+  });
+
+  it('should delete a specified todo', () => {
+    const action = {
+      type: constants.DELETE_TODO,
+      id: ids[0],
+    };
+    const stateAfter = [
+      {
+        text: 'Learn React and Redux',
+        id: ids[1],
+        completed: false,
+      },
+    ];
+
+    expect(
+      todoReducer(stateBefore, action)
+    ).to.deep.equal(stateAfter);
+  });
+
+  it('should toggle `completed` field of specified todo', () => {
     const action = {
       type: constants.TOGGLE_TODO,
       id: ids[1],
@@ -82,9 +101,6 @@ describe('todoReducer', () => {
         completed: true,
       },
     ];
-
-    Object.freeze(stateBefore);
-    Object.freeze(action);
 
     expect(
       todoReducer(stateBefore, action)

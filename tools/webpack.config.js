@@ -37,7 +37,7 @@ const config = {
             sourceMap: true,
             localIdentName: '[name]__[local]__[hash:base64:5]',
           })}`,
-          'postcss-loader',
+          'postcss-loader?pack=default',
         ],
       },
       {
@@ -56,6 +56,23 @@ const config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
+  postcss(bundler) {
+    return {
+      default: [
+        require('postcss-import')({ addDependencyTo: bundler }),
+        require('postcss-custom-properties')(),
+        require('postcss-custom-media')(),
+        require('postcss-media-minmax')(),
+        require('postcss-custom-selectors')(),
+        require('postcss-calc')(),
+        require('postcss-nesting')(),
+        require('postcss-color-function')(),
+        require('postcss-selector-matches')(),
+        require('postcss-selector-not')(),
+        require('autoprefixer'),
+      ],
+    };
+  },
 };
 
 const devServerConfig = {

@@ -19,12 +19,20 @@ const mockTodo = (overrides) => {
 describe('<TodoItem />', () => {
   let wrapper;
   let todo;
-  let spy;
+  let toggleSpy;
+  let deleteSpy;
 
   beforeEach(() => {
-    spy = sinon.spy();
+    toggleSpy = sinon.spy();
+    deleteSpy = sinon.spy();
     todo = mockTodo();
-    wrapper = shallow(<TodoItem {...todo} handleClick={spy} />);
+    wrapper = shallow(
+      <TodoItem
+        {...todo}
+        toggleTodo={toggleSpy}
+        deleteTodo={deleteSpy}
+      />
+    );
   });
 
   it('renders the text of the todo', () => {
@@ -33,11 +41,19 @@ describe('<TodoItem />', () => {
     ).to.contain(todo.text);
   });
 
-  it('should toggle when clicked', () => {
-    wrapper.simulate('click');
+  it('should have a toggle handler', () => {
+    wrapper.find('li').simulate('click');
 
     expect(
-      spy.calledOnce
+      toggleSpy.calledOnce
+    ).to.be.true;
+  });
+
+  it('should have a delete handler', () => {
+    wrapper.find('button').simulate('click');
+
+    expect(
+      deleteSpy.calledOnce
     ).to.be.true;
   });
 });

@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 const FilterLinkContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(FilterLink);
 
 export { FilterLinkContainer };

@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react';
 
-const TodoItem = ({ text, handleClick }) => {
+const TodoItem = ({ text, toggleTodo, deleteTodo }) => {
   return (
-    <li onClick={handleClick}>
+    <li onClick={toggleTodo}>
       {text}
+      <button onClick={deleteTodo}>
+        Delete
+      </button>
     </li>
   );
 };
@@ -11,7 +14,8 @@ const TodoItem = ({ text, handleClick }) => {
 TodoItem.displayName = 'TodoItem';
 TodoItem.propTypes = {
   text: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 export { TodoItem };

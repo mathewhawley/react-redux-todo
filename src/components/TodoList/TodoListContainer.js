@@ -1,22 +1,26 @@
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { TodoList } from './TodoList';
-import { toggleTodoAction } from '../../actions/todoActions';
 import { FILTERS } from '../../constants/filterConstants';
+import { toggleTodoAction, deleteTodoAction } from '../../actions/todoActions';
 import { createObjectLookup } from '../../utils';
 
 const getTodos = (state) => state.todos;
 const getFilter = (state) => state.filter;
 
+const showAllTodos = (todos) => todos;
+const showActiveTodos = (todos) => todos.filter((todo) => !todo.completed);
+const showCompletedTodos = (todos) => todos.filter((todo) => todo.completed);
+
 const getVisibleTodos = createObjectLookup({
-  [FILTERS.SHOW_ALL]: (todos) => todos,
-  [FILTERS.SHOW_ACTIVE]: (todos) => todos.filter((todo) => !todo.completed),
-  [FILTERS.SHOW_COMPLETED]: (todos) => todos.filter((todo) => todo.completed),
+  [FILTERS.SHOW_ALL]: showAllTodos,
+  [FILTERS.SHOW_ACTIVE]: showActiveTodos,
+  [FILTERS.SHOW_COMPLETED]: showCompletedTodos,
 });
 
 const getTodosSelector = createSelector(
   [getTodos, getFilter],
-  getVisibleTodos
+  getVisibleTodos,
 );
 
 const mapStateToProps = (state) => ({
@@ -24,14 +28,17 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleClick(id) {
+  toggleTodo(id) {
     dispatch(toggleTodoAction(id));
+  },
+  deleteTodo(id) {
+    dispatch(deleteTodoAction(id));
   },
 });
 
 const TodoListContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(TodoList);
 
 export { TodoListContainer };

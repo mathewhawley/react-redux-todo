@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 const PATHS = {
   src: path.resolve(__dirname, '../src'),
@@ -55,6 +56,7 @@ const config = {
   devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new StyleLintPlugin({ files: '../src/**/*.css' }),
   ],
   postcss(bundler) {
     return {

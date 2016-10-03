@@ -8,6 +8,8 @@
   "description": "A simple 'To Do' application, built using React and Redux",
   "main": "src/index.js",
   "scripts": {
+    "lint": "npm run stylelint && npm run eslint",
+    "stylelint": "stylelint \"src/**/*.css\"",
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
     "test": "NODE_ENV=production mocha --require 'tools/lib/testHelpers.js' --compilers js:babel-register 'src/**/*.spec.js'",
@@ -54,6 +56,9 @@
     "react-addons-test-utils": "^15.3.2",
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
+    "stylelint": "^7.3.1",
+    "stylelint-config-standard": "^13.0.2",
+    "stylelint-webpack-plugin": "^0.4.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
@@ -68,7 +73,7 @@
   },
   "pre-commit": [
     "pre-commit-msg",
-    "eslint",
+    "lint",
     "test"
   ]
 }

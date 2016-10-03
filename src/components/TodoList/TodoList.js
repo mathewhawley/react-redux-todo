@@ -2,16 +2,18 @@ import React, { PropTypes } from 'react';
 import { TodoItem } from '../TodoItem';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
+  const renderTodos = todos.map((todo) => (
+    <TodoItem
+      {...todo}
+      key={todo.id}
+      toggleTodo={() => toggleTodo(todo.id)}
+      deleteTodo={() => deleteTodo(todo.id)}
+    />
+  ));
+
   return (
     <ul>
-      {todos.map((todo) => (
-        <TodoItem
-          {...todo}
-          key={todo.id}
-          toggleTodo={() => toggleTodo(todo.id)}
-          deleteTodo={() => deleteTodo(todo.id)}
-        />
-      ))}
+      {renderTodos}
     </ul>
   );
 };

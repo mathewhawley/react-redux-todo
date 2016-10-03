@@ -13,8 +13,7 @@ const TodoForm = ({ dispatch }) => {
 
             if (charCode === 13 && target.value.trim()) {
               dispatch(addTodoAction(target.value));
-              // eslint-disable-next-line no-param-reassign
-              target.value = '';
+              target.value = ''; // eslint-disable-line no-param-reassign
             }
           }
         }

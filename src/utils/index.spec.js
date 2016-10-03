@@ -12,7 +12,7 @@ import {
 
 describe('Utilities', () => {
   describe('updateObject', () => {
-    it('should return a new object instance with updated/added values', () => {
+    it('should return a new object with updated/added values', () => {
       const id = v4();
       const originalObject = {
         text: 'This is a test',

@@ -7,16 +7,14 @@ const TodoForm = ({ dispatch }) => {
       <input
         type='text'
         autoFocus={true}
-        onKeyPress={
-          (event) => {
-            const { charCode, target } = event;
+        onKeyPress={(event) => {
+          const { charCode, target } = event;
 
-            if (charCode === 13 && target.value.trim()) {
-              dispatch(addTodoAction(target.value));
-              target.value = ''; // eslint-disable-line no-param-reassign
-            }
+          if (charCode === 13 && target.value.trim()) {
+            dispatch(addTodoAction(target.value));
+            target.value = ''; // eslint-disable-line no-param-reassign
           }
-        }
+        }}
       />
     </form>
   );

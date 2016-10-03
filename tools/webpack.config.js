@@ -4,7 +4,6 @@ import webpack from 'webpack';
 const PATHS = {
   src: path.resolve(__dirname, '../src'),
   build: path.resolve(__dirname, '../build'),
-  tools: path.resolve(__dirname, '../tools'),
   public: '/static/',
 };
 

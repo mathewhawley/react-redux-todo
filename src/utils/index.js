@@ -24,3 +24,12 @@ export const createReducer = (initialState, handlers) => {
     return state;
   };
 };
+
+export const createObjectLookup = (handlers) => {
+  return (data, filter) => {
+    if (handlers.hasOwnProperty(filter)) {
+      return handlers[filter](data);
+    }
+    return data;
+  };
+};

@@ -7,6 +7,7 @@ import {
   updateObject,
   updateObjectInArray,
   createReducer,
+  createObjectLookup,
 } from './index';
 
 describe('Utilities', () => {
@@ -79,30 +80,29 @@ describe('Utilities', () => {
   });
 
   describe('createReducer', () => {
-    let initialState;
     let spyOne;
     let spyTwo;
     let handlers;
-    let sliceReducer;
 
     beforeEach(() => {
-      initialState = [];
       spyOne = sinon.spy();
       spyTwo = sinon.spy();
       handlers = {
         CASE_ONE: spyOne,
         CASE_TWO: spyTwo,
       };
-      sliceReducer = createReducer(initialState, handlers);
     });
 
     it('should return a function', () => {
+      const sliceReducer = createReducer();
       expect(
         sliceReducer
       ).to.be.instanceof(Function);
     });
 
     it('should call the correct handler', () => {
+      const initialState = [];
+      const sliceReducer = createReducer(initialState, handlers);
       const action = {
         type: 'CASE_TWO',
       };
@@ -119,6 +119,8 @@ describe('Utilities', () => {
     });
 
     it('should return the current state if no action is recognised', () => {
+      const initialState = [];
+      const sliceReducer = createReducer(initialState, handlers);
       const currentState = [
         {
           text: 'Hello, world!',
@@ -142,6 +144,51 @@ describe('Utilities', () => {
       expect(
         sliceReducer(currentState, action)
       ).to.deep.equal(currentState);
+    });
+  });
+
+  describe('createObjectLookup', () => {
+    let spyOne;
+    let spyTwo;
+    let handlers;
+
+    beforeEach(() => {
+      spyOne = sinon.spy();
+      spyTwo = sinon.spy();
+      handlers = {
+        CASE_ONE: spyOne,
+        CASE_TWO: spyTwo,
+      };
+    });
+
+    it('should return a function', () => {
+      const lookUp = createObjectLookup();
+
+      expect(
+        lookUp
+      ).to.be.instanceOf(Function);
+    });
+
+    it('should call the correct handler', () => {
+      const lookUp = createObjectLookup(handlers);
+
+      lookUp(null, 'CASE_ONE');
+
+      expect(
+        spyOne.calledOnce
+      ).to.be.true;
+    });
+
+    it('should return input data if no handler is matched', () => {
+      const data = {
+        hello: 'world',
+      };
+      const lookUp = createObjectLookup(handlers);
+      const result = lookUp(data, 'CASE_THREE');
+
+      expect(
+        result
+      ).to.deep.equal(data);
     });
   });
 });

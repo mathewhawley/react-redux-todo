@@ -30,6 +30,7 @@ export const createObjectLookup = (handlers) => {
     if (handlers.hasOwnProperty(filter)) {
       return handlers[filter](data);
     }
+
     return data;
   };
 };

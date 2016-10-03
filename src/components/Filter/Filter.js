@@ -2,7 +2,7 @@ import React from 'react';
 import { FilterLinkContainer } from '../FilterLink/FilterLinkContainer';
 import { FILTERS } from '../../constants/filterConstants';
 
-export const Filter = () => {
+const Filter = () => {
   return (
     <ul>
       <FilterLinkContainer filter={FILTERS.SHOW_ALL}>
@@ -19,3 +19,5 @@ export const Filter = () => {
 };
 
 Filter.displayName = 'Filter';
+
+export { Filter };

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-export const FilterLink = ({ active, setFilter, children }) => {
+const FilterLink = ({ active, setFilter, children }) => {
   if (active) {
     return <li>{children}</li>;
   }
@@ -23,3 +23,5 @@ FilterLink.propTypes = {
   children: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
 };
+
+export { FilterLink };

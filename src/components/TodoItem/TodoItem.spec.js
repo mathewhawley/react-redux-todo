@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import { v4 } from 'node-uuid';
 import sinon from 'sinon';
-import TodoItem from './TodoItem';
+import { TodoItem } from './TodoItem';
 
 const mockTodo = (overrides) => {
   return {
@@ -34,7 +34,7 @@ describe('<TodoItem />', () => {
   });
 
   it('should toggle when clicked', () => {
-    wrapper.find('li').simulate('click');
+    wrapper.simulate('click');
 
     expect(
       spy.calledOnce

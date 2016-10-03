@@ -12,7 +12,9 @@ const mapDispatchToProps = (dispatch, props) => ({
   },
 });
 
-export const FilterLinkContainer = connect(
+const FilterLinkContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(FilterLink);
+
+export { FilterLinkContainer };

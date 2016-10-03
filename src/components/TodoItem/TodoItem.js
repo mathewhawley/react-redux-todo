@@ -14,4 +14,4 @@ TodoItem.propTypes = {
   handleClick: PropTypes.func.isRequired,
 };
 
-export default TodoItem;
+export { TodoItem };

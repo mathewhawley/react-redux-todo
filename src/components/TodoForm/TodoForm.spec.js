@@ -28,7 +28,7 @@ describe('<TodoForm />', () => {
   });
 
   it('should prevent default `submit` behaviour', () => {
-    wrapper.find('form').simulate('submit', { preventDefault: spy });
+    wrapper.simulate('submit', { preventDefault: spy });
 
     expect(
       spy.calledOnce

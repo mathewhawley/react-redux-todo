@@ -69,7 +69,9 @@ const config = {
         require('postcss-color-function')(),
         require('postcss-selector-matches')(),
         require('postcss-selector-not')(),
-        require('autoprefixer'),
+        require('pleeease-filters')(),
+        require('postcss-pseudo-class-any-link')(),
+        require('autoprefixer')(),
       ],
     };
   },

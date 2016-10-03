@@ -45,6 +45,22 @@ describe('<TodoForm />', () => {
     ).to.be.true;
   });
 
+  it('should not dispatch on empty or `space` only input', () => {
+    const wrapper = shallow(<TodoForm dispatch={spy} />);
+    const event = {
+      charCode: 13,
+      target: {
+        value: '  ',
+      },
+    };
+
+    wrapper.find('input').simulate('keypress', event);
+
+    expect(
+      spy.calledOnce
+    ).to.be.false;
+  });
+
   it('should reset the input field after dispatch', () => {
     wrapper.find('input').simulate('keypress', event);
 

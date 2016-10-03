@@ -30,6 +30,18 @@ const config = {
     ],
     loaders: [
       {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          `css-loader?${JSON.stringify({
+            modules: true,
+            sourceMap: true,
+            localIdentName: '[name]__[local]__[hash:base64:5]',
+          })}`,
+          'postcss-loader',
+        ],
+      },
+      {
         test: /\.jsx?$/,
         loader: 'babel',
         include: PATHS.src,

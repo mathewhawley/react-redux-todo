@@ -1,9 +1,7 @@
-export const updateObject = (object, newValues) => {
-  return {
-    ...object,
-    ...newValues,
-  };
-};
+export const updateObject = (object, newValues) => ({
+  ...object,
+  ...newValues,
+});
 
 export const updateObjectInArray = (array, id, updateObjCallback) => {
   const updatedArray = array.map((item) => {
@@ -24,5 +22,15 @@ export const createReducer = (initialState, handlers) => {
     }
 
     return state;
+  };
+};
+
+export const createObjectLookup = (handlers) => {
+  return (data, filter) => {
+    if (handlers.hasOwnProperty(filter)) {
+      return handlers[filter](data);
+    }
+
+    return data;
   };
 };

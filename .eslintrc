@@ -60,8 +60,6 @@
       "properties": true
     }],
     "new-parens": 2,
-    "newline-after-var": 1,
-    "newline-before-return": 1,
     "newline-per-chained-call": [1, {
       "ignoreChainWithDepth": 2
     }],
@@ -93,7 +91,6 @@
     "no-eval": 2,
     "no-ex-assign": 2,
     "no-extra-boolean-cast": 2,
-    "no-extra-parens": 1,
     "no-fallthrough": 2,
     "no-func-assign": 2,
     "no-global-assign": 2,

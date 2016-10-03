@@ -1,8 +1,6 @@
-import * as constants from '../constants/filterConstants';
+import { SET_FILTER } from '../constants/filterConstants';
 
-export const setFilterAction = (filter) => {
-  return {
-    type: constants.SET_FILTER,
-    filter,
-  };
-};
+export const setFilterAction = (filter) => ({
+  type: SET_FILTER,
+  filter,
+});

@@ -1,10 +1,10 @@
 import path from 'path';
 import webpack from 'webpack';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 const PATHS = {
   src: path.resolve(__dirname, '../src'),
   build: path.resolve(__dirname, '../build'),
-  tools: path.resolve(__dirname, '../tools'),
   public: '/static/',
 };
 
@@ -30,6 +30,18 @@ const config = {
     ],
     loaders: [
       {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          `css-loader?${JSON.stringify({
+            modules: true,
+            sourceMap: true,
+            localIdentName: '[name]__[local]__[hash:base64:5]',
+          })}`,
+          'postcss-loader?pack=default',
+        ],
+      },
+      {
         test: /\.jsx?$/,
         loader: 'babel',
         include: PATHS.src,
@@ -44,7 +56,27 @@ const config = {
   devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new StyleLintPlugin({ files: '../src/**/*.css' }),
   ],
+  postcss(bundler) {
+    return {
+      default: [
+        require('postcss-import')({ addDependencyTo: bundler }),
+        require('postcss-custom-properties')(),
+        require('postcss-custom-media')(),
+        require('postcss-media-minmax')(),
+        require('postcss-custom-selectors')(),
+        require('postcss-calc')(),
+        require('postcss-nesting')(),
+        require('postcss-color-function')(),
+        require('postcss-selector-matches')(),
+        require('postcss-selector-not')(),
+        require('pleeease-filters')(),
+        require('postcss-pseudo-class-any-link')(),
+        require('autoprefixer')(),
+      ],
+    };
+  },
 };
 
 const devServerConfig = {

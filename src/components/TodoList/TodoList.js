@@ -1,10 +1,19 @@
 import React, { PropTypes } from 'react';
-import TodoItem from '../TodoItem';
+import { TodoItem } from '../TodoItem';
 
-export const TodoList = ({ todos }) => {
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
+  const renderTodos = todos.map((todo) => (
+    <TodoItem
+      {...todo}
+      key={todo.id}
+      toggleTodo={() => toggleTodo(todo.id)}
+      deleteTodo={() => deleteTodo(todo.id)}
+    />
+  ));
+
   return (
     <ul>
-      {todos.map((todo) => <TodoItem key={todo.id} todo={todo}/>)}
+      {renderTodos}
     </ul>
   );
 };
@@ -13,7 +22,11 @@ TodoList.displayName = 'TodoList';
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
   })),
+  toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
+
+export { TodoList };

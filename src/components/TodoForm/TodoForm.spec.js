@@ -3,30 +3,69 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import sinon from 'sinon';
 import { TodoForm } from './TodoForm';
 
 describe('<TodoForm />', () => {
-  it('should have an input field', () => {
-    const wrapper = shallow(<TodoForm />);
+  let spy;
+  let wrapper;
+  const event = {
+    charCode: 13,
+    target: {
+      value: 'Hello, world',
+    },
+  };
 
-    expect(
-      wrapper.find('input')
-    ).to.have.length(1);
+  beforeEach(() => {
+    spy = sinon.spy();
+    wrapper = shallow(<TodoForm />);
   });
 
-  /*
-   * This is a stateless component and makes use of the 'ref'
-   * attribute – currently unable to test more than what is below
-   */
+  it('should have an input field', () => {
+    expect(
+      wrapper.find('input')
+    ).to.exist;
+  });
 
-  // it('should dispatch an action on submit', () => {
-  //   const spy = sinon.spy();
-  //   const wrapper = shallow(<TodoForm dispatch={spy} />);
+  it('should prevent default `submit` behaviour', () => {
+    wrapper.simulate('submit', { preventDefault: spy });
 
-  //   wrapper.find('form').simulate('submit', { preventDefault() {} } );
+    expect(
+      spy.calledOnce
+    ).to.be.true;
+  });
 
-  //   expect(
-  //     spy.calledOnce
-  //   ).to.be.true;
-  // });
+  it('should call dispatch on `Enter` key press', () => {
+    const wrapper = shallow(<TodoForm dispatch={spy} />);
+
+    wrapper.find('input').simulate('keypress', event);
+
+    expect(
+      spy.calledOnce
+    ).to.be.true;
+  });
+
+  it('should not dispatch on empty or `space` only input', () => {
+    const wrapper = shallow(<TodoForm dispatch={spy} />);
+    const event = {
+      charCode: 13,
+      target: {
+        value: '  ',
+      },
+    };
+
+    wrapper.find('input').simulate('keypress', event);
+
+    expect(
+      spy.calledOnce
+    ).to.be.false;
+  });
+
+  it('should reset the input field after dispatch', () => {
+    wrapper.find('input').simulate('keypress', event);
+
+    expect(
+      event.target.value
+    ).to.be.empty;
+  });
 });

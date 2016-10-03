@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import Filter from './Filter';
+import { Filter } from './Filter';
 
 describe('<Filter />', () => {
   it('should render a list of filters', () => {

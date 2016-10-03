@@ -1,38 +1,36 @@
 /* eslint-env mocha */
 
 import { expect } from 'chai';
-import * as constants from '../constants/filterConstants';
+import { SET_FILTER, FILTERS } from '../constants/filterConstants';
 import { filterReducer } from './filterReducer';
 
-describe('Reducers', () => {
-  describe('filterReducer', () => {
-    it('should return the current state when the action is unrecognised', () => {
-      const stateBefore = 'SHOW_ALL';
-      const action = {
-        type: 'UNRECOGNISED_ACTION',
-        filter: 'SHOW_ACTIVE',
-      };
+describe('filterReducer', () => {
+  const stateBefore = FILTERS.SHOW_ALL;
 
-      Object.freeze(action);
+  it('should return the current state when the action is unrecognised', () => {
+    const action = {
+      type: 'UNRECOGNISED_ACTION',
+      filter: FILTERS.SHOW_ACTIVE,
+    };
 
-      expect(
-        filterReducer(stateBefore, action)
-      ).to.deep.equal(stateBefore);
-    });
+    Object.freeze(action);
 
-    it('should update the state with a new filter', () => {
-      const stateBefore = 'SHOW_ALL';
-      const action = {
-        type: constants.SET_FILTER,
-        filter: 'SHOW_COMPLETED',
-      };
-      const stateAfter = 'SHOW_COMPLETED';
+    expect(
+      filterReducer(stateBefore, action)
+    ).to.deep.equal(stateBefore);
+  });
 
-      Object.freeze(action);
+  it('should update the state with a new filter', () => {
+    const action = {
+      type: SET_FILTER,
+      filter: FILTERS.SHOW_COMPLETED,
+    };
+    const stateAfter = FILTERS.SHOW_COMPLETED;
 
-      expect(
-        filterReducer(stateBefore, action)
-      ).to.deep.equal(stateAfter);
-    });
+    Object.freeze(action);
+
+    expect(
+      filterReducer(stateBefore, action)
+    ).to.deep.equal(stateAfter);
   });
 });

@@ -84,9 +84,8 @@ const devServerConfig = {
   publicPath: PATHS.public,
   historyApiFallback: true,
   hot: true,
-  stats: {
-    colors: true,
-  },
+  stats: { colors: true },
+  quiet: true,
   compress: true,
 };
 

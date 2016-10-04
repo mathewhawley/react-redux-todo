@@ -12,7 +12,7 @@
     "stylelint": "stylelint \"src/**/*.css\"",
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
-    "test": "NODE_ENV=production mocha --require 'tools/lib/testHelpers.js' --compilers js:babel-register 'src/**/*.spec.js'",
+    "test": "mocha --require 'tools/lib/testHelpers.js' --compilers js:babel-register 'src/**/*.spec.js'",
     "test:watch": "npm test -- --watch --reporter min",
     "pre-commit-msg": "echo 'Performing pre-commit checks...' && exit 0"
   },

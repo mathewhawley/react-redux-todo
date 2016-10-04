@@ -43,8 +43,12 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: PATHS.src,
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader',
       },
     ],
   },

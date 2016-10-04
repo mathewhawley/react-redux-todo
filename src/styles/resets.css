@@ -1,4 +1,5 @@
 @import '../../node_modules/normalize.css/normalize.css';
+@import './variables.css';
 
 html {
   box-sizing: border-box;
@@ -8,4 +9,12 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-stack);
+}
+
+h1 {
+  font-weight: var(--font-medium);
 }

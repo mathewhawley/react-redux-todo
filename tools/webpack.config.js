@@ -89,7 +89,6 @@ const devServerConfig = {
   historyApiFallback: true,
   hot: true,
   stats: { colors: true },
-  quiet: true,
   compress: true,
 };
 

@@ -1,0 +1,5 @@
+@import '../../styles/variables.css';
+
+.heading {
+  font-weight: var(--font-bold);
+}

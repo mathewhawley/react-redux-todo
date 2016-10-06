@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.input {
+  composes: inputReset from '../../styles/mixins.css';
+  color: var(--purple-500);
+  font: inherit;
+  font-size: 80px;
+  font-weight: var(--font-light);
+  padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+}

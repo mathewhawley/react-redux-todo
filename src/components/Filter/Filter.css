@@ -1,5 +1,0 @@
-@import '../../styles/variables.css';
-
-.base {
-  composes: listReset from '../../styles/mixins.css';
-}

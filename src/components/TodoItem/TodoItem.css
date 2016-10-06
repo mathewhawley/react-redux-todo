@@ -1,17 +1,44 @@
-@import '../../styles/variables';
+@import '../../styles/variables.css';
 
 .base {
   background-color: var(--purple-700);
   color: var(--white);
   padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .complete {
   composes: base;
   background-color: var(--green-100);
   color: var(--green-800);
+}
+
+.text {
+  margin: 0;
+}
+
+.meta {
+  font-size: 16px;
+}
+
+.time {
+  font-weight: var(--font-light);
+  margin-right: 20px;
+}
+
+.text,
+.delete {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.delete {
+  composes: buttonReset from '../../styles/mixins.css';
+  composes: link from '../FilterLink/FilterLink.css';
+  font: inherit;
+
+  &:hover {
+    background-color: var(--pink-200);
+    color: var(--white);
+  }
 }

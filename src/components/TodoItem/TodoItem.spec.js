@@ -42,7 +42,7 @@ describe('<TodoItem />', () => {
   });
 
   it('should have a toggle handler', () => {
-    wrapper.find('li').simulate('click');
+    wrapper.find('p').simulate('click');
 
     expect(
       toggleSpy.calledOnce

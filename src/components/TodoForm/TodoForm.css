@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../styles/variables.css';
 
 .input {
   composes: inputReset from '../../styles/mixins.css';

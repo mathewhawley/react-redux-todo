@@ -10,11 +10,18 @@ const TodoItem = ({
   const baseClass = completed ? styles.complete : styles.base;
 
   return (
-    <li className={baseClass} onClick={toggleTodo}>
-      {text}
-      <button onClick={deleteTodo}>
-        Delete
-      </button>
+    <li className={baseClass}>
+      <p className={styles.text} onClick={toggleTodo}>
+        {text}
+      </p>
+      <div className={styles.meta}>
+        <time className={styles.time}>
+          Yesterday
+        </time>
+        <button className={styles.delete} onClick={deleteTodo}>
+          Delete
+        </button>
+      </div>
     </li>
   );
 };

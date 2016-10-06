@@ -2,5 +2,8 @@
 
 .base {
   background-color: var(--purple-800);
+  box-shadow: 0 2px 5px color(var(--black) a(25%));
   padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
+  position: relative;
+  z-index: 1;
 }

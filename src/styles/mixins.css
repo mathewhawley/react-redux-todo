@@ -1,15 +1,10 @@
-.listReset {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.inputReset {
-  padding: 0;
-  border: 0;
-}
-
-.buttonReset {
-  border: 0;
-  background: none;
+.link {
+  border-radius: 100px;
+  color: inherit;
+  display: inline-block;
+  font: inherit;
+  padding: 5px 15px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }

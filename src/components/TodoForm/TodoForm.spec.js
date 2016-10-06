@@ -68,4 +68,10 @@ describe('<TodoForm />', () => {
       event.target.value
     ).to.be.empty;
   });
+
+  it('should accept no more that 70 characters', () => {
+    expect(
+      wrapper.find('input').props().maxLength
+    ).to.equal(70);
+  });
 });

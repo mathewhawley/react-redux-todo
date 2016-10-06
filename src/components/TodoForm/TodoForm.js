@@ -17,6 +17,7 @@ const TodoForm = ({ dispatch }) => {
       <input
         className={styles.input}
         type='text'
+        maxLength={70}
         placeholder='Ornare ligula magna inceptos...'
         autoFocus={true}
         onKeyPress={keyPresshandler}

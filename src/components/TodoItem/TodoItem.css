@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.base {
+  background-color: var(--purple-700);
+  color: var(--white);
+  padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.complete {
+  composes: base;
+  background-color: var(--green-100);
+  color: var(--green-800);
+}

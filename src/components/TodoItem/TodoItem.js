@@ -1,8 +1,16 @@
 import React, { PropTypes } from 'react';
+import styles from './TodoItem.css';
 
-const TodoItem = ({ text, toggleTodo, deleteTodo }) => {
+const TodoItem = ({
+  text,
+  completed,
+  toggleTodo,
+  deleteTodo,
+}) => {
+  const baseClass = completed ? styles.complete : styles.base;
+
   return (
-    <li onClick={toggleTodo}>
+    <li className={baseClass} onClick={toggleTodo}>
       {text}
       <button onClick={deleteTodo}>
         Delete
@@ -16,6 +24,7 @@ TodoItem.propTypes = {
   text: PropTypes.string.isRequired,
   toggleTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
+  completed: PropTypes.bool.isRequred,
 };
 
 export { TodoItem };

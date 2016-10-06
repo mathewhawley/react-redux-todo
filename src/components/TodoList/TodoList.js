@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { TodoItem } from '../TodoItem';
+import styles from './TodoList.css';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   const renderTodos = todos.map((todo) => (
@@ -12,7 +13,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   ));
 
   return (
-    <ul>
+    <ul className={styles.base}>
       {renderTodos}
     </ul>
   );

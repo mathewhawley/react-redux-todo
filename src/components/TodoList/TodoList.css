@@ -1,0 +1,7 @@
+@import '../../styles/variables';
+
+.base {
+  composes: listReset from '../../styles/mixins.css';
+  font-size: 80px;
+  font-weight: var(--font-regular);
+}

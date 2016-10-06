@@ -15,6 +15,11 @@
    * Layout
    * ======================================================================== */
 
+  @custom-media --small-only (width < 768px);
+  @custom-media --small-up (width >= 768px);
+  @custom-media --medium-up (width >= 992px);
+  @custom-media --large-up (width >= 1200px);
+
   --viewport-lr-pad: 15px;
   --viewport-tb-pad: 20px;
 
@@ -26,12 +31,12 @@
   --black: #000;
 
   --purple-100: #e1bee7;
-  --purple-500: #9b26af;
-  --purple-700: #7a1ea1;
-  --purple-800: #692a99;
+  --purple-200: #9b26af;
+  --purple-300: #7a1ea1;
+  --purple-400: #692a99;
 
   --green-100: #68efad;
-  --green-800: #31613f;
+  --green-200: #31613f;
 
-  --pink-200: #ff4081;
+  --pink-100: #ff4081;
 }

@@ -1,14 +1,26 @@
 @import '../../styles/variables.css';
 
 .input {
-  color: var(--purple-500);
+  color: var(--purple-200);
   font: inherit;
-  font-size: 80px;
+  font-size: 30px;
   font-weight: var(--font-light);
   padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
   width: 100%;
 
   &:focus {
     outline: 0;
+  }
+}
+
+@media (--small-up) {
+  .input {
+    font-size: 60px;
+  }
+}
+
+@media (--medium-up) {
+  .input {
+    font-size: 80px;
   }
 }

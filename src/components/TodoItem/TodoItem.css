@@ -1,20 +1,21 @@
 @import '../../styles/variables.css';
 
 .base {
-  background-color: var(--purple-700);
+  background-color: var(--purple-300);
   color: var(--white);
   padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
   transition: background-color 0.25s ease;
 
   &:hover {
-    background-color: color(var(--purple-700) tint(15%));
+    background-color: color(var(--purple-300) tint(15%));
+    cursor: pointer;
   }
 }
 
 .complete {
   composes: base;
   background-color: var(--green-100);
-  color: var(--green-800);
+  color: var(--green-200);
 
   &:hover {
     background-color: color(var(--green-100) shade(15%));
@@ -26,7 +27,7 @@
 }
 
 .meta {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--font-regular);
   margin-top: 10px;
 }
@@ -35,18 +36,17 @@
   margin-right: 20px;
 }
 
-.base,
-.delete {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .delete {
   composes: link from '../../styles/mixins.css';
 
   &:hover {
-    background-color: var(--pink-200);
+    background-color: var(--pink-100);
     color: var(--white);
+  }
+}
+
+@media (--small-up) {
+  .meta {
+    font-size: 16px;
   }
 }

@@ -3,8 +3,12 @@
   color: inherit;
   display: inline-block;
   font: inherit;
-  padding: 5px 15px;
+  padding: 0.313em 0.983em; /* ~ 5px 15px */
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
+}
+
+.link:hover {
+  cursor: pointer;
 }

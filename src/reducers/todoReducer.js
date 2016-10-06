@@ -13,6 +13,7 @@ const addTodo = (state, action) => {
       text: action.text,
       id: action.id,
       completed: false,
+      createdAt: action.createdAt,
     },
     ...state,
   ];

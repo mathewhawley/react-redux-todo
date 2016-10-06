@@ -25,6 +25,7 @@ TodoList.propTypes = {
     text: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
+    createdAt: PropTypes.number.isRequired,
   })),
   toggleTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,

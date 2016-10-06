@@ -7,7 +7,7 @@
   transition: background-color 0.25s ease;
 
   &:hover {
-    background-color: color(var(--purple-700) a(90%));
+    background-color: color(var(--purple-700) tint(15%));
   }
 }
 
@@ -17,7 +17,7 @@
   color: var(--green-800);
 
   &:hover {
-    background-color: color(var(--green-100) shade(10%));
+    background-color: color(var(--green-100) shade(15%));
   }
 }
 
@@ -27,10 +27,11 @@
 
 .meta {
   font-size: 16px;
+  font-weight: var(--font-regular);
+  margin-top: 10px;
 }
 
 .time {
-  font-weight: var(--font-light);
   margin-right: 20px;
 }
 
@@ -43,7 +44,6 @@
 
 .delete {
   composes: link from '../../styles/mixins.css';
-  font-weight: var(--font-light);
 
   &:hover {
     background-color: var(--pink-200);

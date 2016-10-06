@@ -4,9 +4,8 @@ import styles from './TodoForm.css';
 
 const TodoForm = ({ dispatch }) => {
   const keyPresshandler = (event) => {
-    const { charCode, target } = event;
-
-    if (charCode === 13 && target.value.trim()) {
+    const { target } = event;
+    if (event.charCode === 13 && target.value.trim()) {
       dispatch(addTodoAction(target.value));
       target.value = ''; // eslint-disable-line no-param-reassign
     }
@@ -18,7 +17,7 @@ const TodoForm = ({ dispatch }) => {
         className={styles.input}
         type='text'
         maxLength={70}
-        placeholder='Ornare ligula magna inceptos...'
+        placeholder='To do or not to do...'
         autoFocus={true}
         onKeyPress={keyPresshandler}
       />

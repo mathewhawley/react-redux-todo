@@ -9,12 +9,12 @@ const INITIAL_STATE = [];
 
 const addTodo = (state, action) => {
   return [
-    ...state,
     {
       text: action.text,
       id: action.id,
       completed: false,
     },
+    ...state,
   ];
 };
 

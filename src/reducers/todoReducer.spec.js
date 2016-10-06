@@ -45,6 +45,11 @@ describe('todoReducer', () => {
     };
     const stateAfter = [
       {
+        text: 'Learn unit testing',
+        id,
+        completed: false,
+      },
+      {
         text: 'Hello, world',
         id: ids[0],
         completed: false,
@@ -52,11 +57,6 @@ describe('todoReducer', () => {
       {
         text: 'Learn React and Redux',
         id: ids[1],
-        completed: false,
-      },
-      {
-        text: 'Learn unit testing',
-        id,
         completed: false,
       },
     ];

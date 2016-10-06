@@ -12,14 +12,24 @@
   --font-black: 900;
 
   /*
+   * Layout
+   * ======================================================================== */
+
+  --viewport-lr-pad: 15px;
+  --viewport-tb-pad: 20px;
+
+  /*
    * Colors
    * ======================================================================== */
 
   --white: #fff;
   --black: #000;
 
-  --light-blue-100: #b3e5fc;
-  --light-blue-500: #03a9f4;
-  --light-blue-600: #039be5;
-  --light-blue-900: #01579b;
+  --purple-100: #e1bee7;
+  --purple-500: #9b26af;
+  --purple-700: #7a1ea1;
+  --purple-800: #692a99;
+
+  --green-100: #68efad;
+  --green-800: #31613f;
 }

@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.base {
+  display: inline-block;
+  font-weight: var(--font-light);
+  color: var(--white);
+
+  &:not(:first-child) {
+    margin-left: 5px;
+  }
+}
+
+.link,
+.active {
+  padding: 5px 15px;
+  border-radius: 100px;
+  color: inherit;
+  display: inline-block;
+}
+
+.link {
+  transition: all 0.25s ease;
+}
+
+.active,
+.link:hover {
+  background-color: var(--light-blue-100);
+  color: var(--light-blue-600);
+}

@@ -17,10 +17,4 @@ describe('<Banner />', () => {
       wrapper.props().role
     ).to.equal('banner');
   });
-
-  it('should render the main heading', () => {
-    expect(
-      wrapper.find('h1')
-    ).to.exist;
-  });
 });

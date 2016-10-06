@@ -1,10 +1,11 @@
 import React from 'react';
 import { FilterLinkContainer } from '../FilterLink/FilterLinkContainer';
 import { FILTERS } from '../../constants/filterConstants';
+import styles from './Filter.css';
 
 const Filter = () => {
   return (
-    <ul>
+    <ul className={styles.base}>
       <FilterLinkContainer filter={FILTERS.SHOW_ALL}>
         All
       </FilterLinkContainer>

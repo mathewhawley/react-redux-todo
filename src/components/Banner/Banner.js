@@ -4,8 +4,7 @@ import styles from './Banner.css';
 
 const Banner = () => {
   return (
-    <header role='banner'>
-      <h1 className={styles.heading}>ToDo</h1>
+    <header className={styles.base} role='banner'>
       <Filter />
     </header>
   );

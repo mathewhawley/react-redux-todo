@@ -1,5 +1,6 @@
 @import '../../styles/variables.css';
 
-.heading {
-  font-weight: var(--font-bold);
+.base {
+  background-color: var(--light-blue-500);
+  padding: 20px 15px;
 }

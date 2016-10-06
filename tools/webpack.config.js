@@ -48,7 +48,9 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader',
+        loader: `file-loader?${JSON.stringify({
+          name: '[path][name].[ext]',
+        })}`,
       },
     ],
   },
@@ -88,7 +90,9 @@ const devServerConfig = {
   publicPath: PATHS.public,
   historyApiFallback: true,
   hot: true,
-  stats: { colors: true },
+  stats: {
+    colors: true,
+  },
   compress: true,
 };
 

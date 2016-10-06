@@ -1,0 +1,6 @@
+@import '../../styles/variables.css';
+
+.base {
+  background-color: var(--light-blue-500);
+  padding: 20px 15px;
+}

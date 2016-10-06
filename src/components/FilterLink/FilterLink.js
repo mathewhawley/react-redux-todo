@@ -1,13 +1,20 @@
 import React, { PropTypes } from 'react';
+import styles from './FilterLink.css';
 
 const FilterLink = ({ active, setFilter, children }) => {
   if (active) {
-    return <li>{children}</li>;
+    return (
+      <li className={styles.base}>
+        <span className={styles.active}>
+          {children}
+        </span>
+      </li>
+    );
   }
 
   return (
-    <li>
-      <a href='#' onClick={(event) => {
+    <li className={styles.base}>
+      <a className={styles.link} href='#' onClick={(event) => {
         event.preventDefault();
         setFilter();
       }}>

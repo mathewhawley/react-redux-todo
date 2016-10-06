@@ -10,8 +10,8 @@ const TodoItem = ({
   const baseClass = completed ? styles.complete : styles.base;
 
   return (
-    <li className={baseClass}>
-      <p className={styles.text} onClick={toggleTodo}>
+    <li className={baseClass} onClick={toggleTodo}>
+      <p className={styles.text}>
         {text}
       </p>
       <div className={styles.meta}>

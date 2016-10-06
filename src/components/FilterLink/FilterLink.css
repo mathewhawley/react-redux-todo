@@ -12,16 +12,7 @@
 
 .link,
 .active {
-  border-radius: 100px;
-  color: inherit;
-  display: inline-block;
-  padding: 5px 15px;
-}
-
-.link {
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
+  composes: link from '../../styles/mixins.css';
 }
 
 .active,

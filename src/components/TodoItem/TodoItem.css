@@ -4,12 +4,21 @@
   background-color: var(--purple-700);
   color: var(--white);
   padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
+  transition: background-color 0.25s ease;
+
+  &:hover {
+    background-color: color(var(--purple-700) a(90%));
+  }
 }
 
 .complete {
   composes: base;
   background-color: var(--green-100);
   color: var(--green-800);
+
+  &:hover {
+    background-color: color(var(--green-100) shade(10%));
+  }
 }
 
 .text {
@@ -25,7 +34,7 @@
   margin-right: 20px;
 }
 
-.text,
+.base,
 .delete {
   &:hover {
     cursor: pointer;
@@ -33,9 +42,8 @@
 }
 
 .delete {
-  composes: buttonReset from '../../styles/mixins.css';
-  composes: link from '../FilterLink/FilterLink.css';
-  font: inherit;
+  composes: link from '../../styles/mixins.css';
+  font-weight: var(--font-light);
 
   &:hover {
     background-color: var(--pink-200);

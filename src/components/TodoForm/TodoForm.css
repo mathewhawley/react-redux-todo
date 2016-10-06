@@ -1,7 +1,6 @@
 @import '../../styles/variables.css';
 
 .input {
-  composes: inputReset from '../../styles/mixins.css';
   color: var(--purple-500);
   font: inherit;
   font-size: 80px;

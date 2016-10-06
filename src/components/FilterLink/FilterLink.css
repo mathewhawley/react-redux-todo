@@ -24,6 +24,6 @@
 
 .active,
 .link:hover {
-  background-color: var(--light-blue-100);
-  color: var(--light-blue-600);
+  background-color: var(--green-100);
+  color: var(--purple-800);
 }

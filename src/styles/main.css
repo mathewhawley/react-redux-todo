@@ -36,3 +36,8 @@ button {
   border: 0;
   background: none;
 }
+
+::selection {
+  background-color: var(--pink-100);
+  color: var(--white);
+}

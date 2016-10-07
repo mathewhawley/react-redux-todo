@@ -12,14 +12,27 @@
   --font-black: 900;
 
   /*
+   * Layout
+   * ======================================================================== */
+
+  @custom-media --small-only (width < 768px);
+  @custom-media --small-up (width >= 768px);
+  @custom-media --medium-up (width >= 992px);
+  @custom-media --large-up (width >= 1200px);
+
+  --global-pad: 15px;
+
+  /*
    * Colors
    * ======================================================================== */
 
   --white: #fff;
   --black: #000;
 
-  --light-blue-100: #b3e5fc;
-  --light-blue-500: #03a9f4;
-  --light-blue-600: #039be5;
-  --light-blue-900: #01579b;
+  --purple-100: #7a1ea1;
+  --purple-200: #692a99;
+  --green-100: #68efad;
+  --green-200: #31613f;
+  --pink-100: #ff4081;
+  --grey-100: #616161;
 }

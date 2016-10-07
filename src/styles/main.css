@@ -1,21 +1,5 @@
 @import '../../node_modules/normalize.css/normalize.css';
 @import './fonts.css';
 @import './variables.css';
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  font-family: var(--font-stack);
-}
-
-a {
-  text-decoration: none;
-}
+@import './resets.css';
+@import './utilities.css';

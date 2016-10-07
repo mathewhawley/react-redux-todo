@@ -16,6 +16,7 @@ describe('addTodoAction', () => {
       type: constants.ADD_TODO,
       text,
       id: v4(),
+      createdAt: Date.now(),
     };
     const returnedAction = addTodoAction(text);
 

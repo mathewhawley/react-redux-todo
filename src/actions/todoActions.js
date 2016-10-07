@@ -5,6 +5,7 @@ export const addTodoAction = (text) => ({
   type: constants.ADD_TODO,
   text,
   id: v4(),
+  createdAt: Date.now(),
 });
 
 export const deleteTodoAction = (id) => ({

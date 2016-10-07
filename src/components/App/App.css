@@ -1,0 +1,11 @@
+@import '../../styles/variables.css';
+
+.main {
+  margin-top: 60px;
+}
+
+@media (--small-up) {
+  .main {
+    margin-top: 70px;
+  }
+}

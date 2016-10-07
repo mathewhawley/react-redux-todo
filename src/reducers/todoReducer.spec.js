@@ -7,16 +7,19 @@ import { todoReducer } from './todoReducer';
 
 describe('todoReducer', () => {
   const ids = [v4(), v4()];
+  const dates = [Date.now(), Date.now()];
   const stateBefore = [
     {
       text: 'Hello, world',
       id: ids[0],
       completed: false,
+      createdAt: dates[0],
     },
     {
       text: 'Learn React and Redux',
       id: ids[1],
       completed: false,
+      createdAt: dates[1],
     },
   ];
 
@@ -38,26 +41,31 @@ describe('todoReducer', () => {
 
   it('should update the state with a new todo', () => {
     const id = v4();
+    const createdAt = Date.now();
     const action = {
       type: constants.ADD_TODO,
       text: 'Learn unit testing',
       id,
+      createdAt,
     };
     const stateAfter = [
+      {
+        text: 'Learn unit testing',
+        id,
+        completed: false,
+        createdAt,
+      },
       {
         text: 'Hello, world',
         id: ids[0],
         completed: false,
+        createdAt: dates[0],
       },
       {
         text: 'Learn React and Redux',
         id: ids[1],
         completed: false,
-      },
-      {
-        text: 'Learn unit testing',
-        id,
-        completed: false,
+        createdAt: dates[1],
       },
     ];
 
@@ -76,6 +84,7 @@ describe('todoReducer', () => {
         text: 'Learn React and Redux',
         id: ids[1],
         completed: false,
+        createdAt: dates[1],
       },
     ];
 
@@ -94,11 +103,13 @@ describe('todoReducer', () => {
         text: 'Hello, world',
         id: ids[0],
         completed: false,
+        createdAt: dates[0],
       },
       {
         text: 'Learn React and Redux',
         id: ids[1],
         completed: true,
+        createdAt: dates[1],
       },
     ];
 

@@ -4,12 +4,12 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import { FilterLink } from './FilterLink';
+import { FilterButton } from './FilterButton';
 
-describe('<FilterLink />', () => {
+describe('<FilterButton />', () => {
   it('should render it`s given text', () => {
     const text = 'Completed';
-    const wrapper = shallow(<FilterLink>{text}</FilterLink>);
+    const wrapper = shallow(<FilterButton>{text}</FilterButton>);
 
     expect(
       wrapper.text()
@@ -18,9 +18,9 @@ describe('<FilterLink />', () => {
 
   it('should call it`s given handler when clicked', () => {
     const spy = sinon.spy();
-    const wrapper = shallow(<FilterLink setFilter={spy} />);
+    const wrapper = shallow(<FilterButton setFilter={spy} />);
 
-    wrapper.find('a').simulate('click', { preventDefault: sinon.spy() });
+    wrapper.find('button').simulate('click', { preventDefault: sinon.spy() });
 
     expect(
       spy.calledOnce

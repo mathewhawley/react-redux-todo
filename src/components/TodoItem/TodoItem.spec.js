@@ -12,6 +12,7 @@ const mockTodo = (overrides) => {
     text: 'Hello, world',
     id: v4(),
     completed: false,
+    createdAt: Date.now(),
     ...overrides,
   };
 };
@@ -29,7 +30,7 @@ describe('<TodoItem />', () => {
     wrapper = shallow(
       <TodoItem
         {...todo}
-        toggleTodo={toggleSpy}
+        clickToggle={toggleSpy}
         deleteTodo={deleteSpy}
       />
     );

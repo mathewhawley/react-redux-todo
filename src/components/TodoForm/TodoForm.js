@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { addTodoAction } from '../../actions/todoActions';
-import { visuallyHidden } from '../../styles/utilities.css';
 import styles from './TodoForm.css';
 
 const TodoForm = ({ dispatch }) => {
@@ -14,7 +13,7 @@ const TodoForm = ({ dispatch }) => {
 
   return (
     <form onSubmit={(event) => event.preventDefault()}>
-        <label id='todo-input-label' htmlFor='todo-input' className={visuallyHidden}>
+        <label id='todo-input-label' htmlFor='todo-input' className='visuallyHidden'>
           What do you still need to do?
         </label>
         <input

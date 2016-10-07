@@ -6,7 +6,7 @@
   box-shadow: 0 2px 5px color(var(--black) a(25%));
   display: flex;
   height: 60px;
-  padding: 0 var(--global-lr-pad);
+  padding: 0 var(--global-pad);
   position: fixed;
   top: 0;
   width: 100%;

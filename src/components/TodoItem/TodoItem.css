@@ -3,7 +3,7 @@
 .base {
   background-color: var(--purple-100);
   color: var(--white);
-  padding: 20px var(--global-lr-pad);
+  padding: 20px var(--global-pad);
   transition: background-color 0.25s ease;
 
   &:hover,
@@ -44,7 +44,7 @@
 }
 
 .delete {
-  composes: link from '../../styles/mixins.css';
+  composes: button from '../../styles/mixins.css';
 
   &:hover,
   &:focus {

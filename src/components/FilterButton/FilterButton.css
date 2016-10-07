@@ -13,7 +13,7 @@
 
 .button,
 .active {
-  composes: link from '../../styles/mixins.css';
+  composes: button from '../../styles/mixins.css';
 }
 
 .active,

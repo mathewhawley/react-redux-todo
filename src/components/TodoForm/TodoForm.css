@@ -5,7 +5,7 @@
   font: inherit;
   font-size: 30px;
   font-weight: var(--font-light);
-  padding: 20px var(--global-lr-pad);
+  padding: 20px var(--global-pad);
   width: 100%;
 
   &:focus {

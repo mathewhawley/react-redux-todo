@@ -1,19 +1,19 @@
 import React from 'react';
-import { FilterLinkContainer } from '../FilterLink/FilterLinkContainer';
+import { FilterButtonContainer } from '../FilterButton/FilterButtonContainer';
 import { FILTERS } from '../../constants/filterConstants';
 
 const Filter = () => {
   return (
     <ul>
-      <FilterLinkContainer filter={FILTERS.SHOW_ALL}>
+      <FilterButtonContainer filter={FILTERS.SHOW_ALL}>
         All
-      </FilterLinkContainer>
-      <FilterLinkContainer filter={FILTERS.SHOW_ACTIVE}>
+      </FilterButtonContainer>
+      <FilterButtonContainer filter={FILTERS.SHOW_ACTIVE}>
         Active
-      </FilterLinkContainer>
-      <FilterLinkContainer filter={FILTERS.SHOW_COMPLETED}>
+      </FilterButtonContainer>
+      <FilterButtonContainer filter={FILTERS.SHOW_COMPLETED}>
         Completed
-      </FilterLinkContainer>
+      </FilterButtonContainer>
     </ul>
   );
 };

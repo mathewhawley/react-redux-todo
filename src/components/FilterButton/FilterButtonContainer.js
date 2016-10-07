@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { FilterLink } from './FilterLink';
+import { FilterButton } from './FilterButton';
 import { setFilterAction } from '../../actions/filterActions';
 
 const mapStateToProps = (state, props) => ({
@@ -12,9 +12,9 @@ const mapDispatchToProps = (dispatch, props) => ({
   },
 });
 
-const FilterLinkContainer = connect(
+const FilterButtonContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FilterLink);
+)(FilterButton);
 
-export { FilterLinkContainer };
+export { FilterButtonContainer };

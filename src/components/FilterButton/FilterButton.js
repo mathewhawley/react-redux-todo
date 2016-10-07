@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import styles from './FilterLink.css';
+import styles from './FilterButton.css';
 
-const FilterLink = ({ active, setFilter, children }) => {
+const FilterButton = ({ active, setFilter, children }) => {
   if (active) {
     return (
       <li className={styles.base}>
@@ -17,8 +17,7 @@ const FilterLink = ({ active, setFilter, children }) => {
 
   return (
     <li className={styles.base}>
-      <a
-        href='#'
+      <button
         className={styles.link}
         onClick={(event) => {
           event.preventDefault();
@@ -27,16 +26,16 @@ const FilterLink = ({ active, setFilter, children }) => {
         aria-label={`View ${children} to do's`}
       >
         {children}
-      </a>
+      </button>
     </li>
   );
 };
 
-FilterLink.displayName = 'FilterLink';
-FilterLink.propTypes = {
+FilterButton.displayName = 'FilterButton';
+FilterButton.propTypes = {
   setFilter: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
 };
 
-export { FilterLink };
+export { FilterButton };

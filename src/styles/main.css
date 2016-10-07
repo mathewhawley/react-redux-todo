@@ -32,6 +32,10 @@ input {
   border: 0;
 }
 
+label {
+  display: block;
+}
+
 button {
   border: 0;
   background: none;

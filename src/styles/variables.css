@@ -20,7 +20,7 @@
   @custom-media --medium-up (width >= 992px);
   @custom-media --large-up (width >= 1200px);
 
-  --global-lr-pad: 15px;
+  --global-pad: 15px;
 
   /*
    * Colors

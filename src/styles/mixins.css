@@ -1,4 +1,4 @@
-.link {
+.button {
   border-radius: 100px;
   color: inherit;
   display: inline-block;
@@ -9,6 +9,6 @@
     color 0.25s ease;
 }
 
-.link:hover {
+.button:hover {
   cursor: pointer;
 }

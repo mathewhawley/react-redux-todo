@@ -6,15 +6,21 @@ const TodoItem = ({
   text,
   completed,
   createdAt,
-  toggleTodo,
+  keyPressToggle,
+  clickToggle,
   deleteTodo,
 }) => {
   const baseClass = completed ? styles.complete : styles.base;
-  const timeSince = moment(createdAt).from(Date.now());
+  const timeSince = moment(createdAt).fromNow();
   const ISO = moment(createdAt).toISOString();
 
   return (
-    <li className={baseClass} onClick={toggleTodo}>
+    <li
+      tabIndex={0}
+      className={baseClass}
+      onClick={clickToggle}
+      onKeyPress={keyPressToggle}
+    >
       <p className={styles.text}>
         {text}
       </p>
@@ -35,8 +41,9 @@ TodoItem.propTypes = {
   text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequred,
   createdAt: PropTypes.number.isRequired,
-  toggleTodo: PropTypes.func.isRequired,
+  clickToggle: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
+  keyPressToggle: PropTypes.func.isRequired,
 };
 
 export { TodoItem };

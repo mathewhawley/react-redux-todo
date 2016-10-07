@@ -7,8 +7,13 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
     <TodoItem
       {...todo}
       key={todo.id}
-      toggleTodo={() => toggleTodo(todo.id)}
+      clickToggle={() => toggleTodo(todo.id)}
       deleteTodo={() => deleteTodo(todo.id)}
+      keyPressToggle={(event) => {
+        if (event.charCode === 13) {
+          toggleTodo(todo.id);
+        }
+      }}
     />
   ));
 

@@ -30,7 +30,7 @@ describe('<TodoItem />', () => {
     wrapper = shallow(
       <TodoItem
         {...todo}
-        toggleTodo={toggleSpy}
+        clickToggle={toggleSpy}
         deleteTodo={deleteSpy}
       />
     );

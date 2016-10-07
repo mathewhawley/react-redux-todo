@@ -11,14 +11,14 @@
   }
 }
 
-.link,
+.button,
 .active {
   composes: link from '../../styles/mixins.css';
 }
 
 .active,
-.link:hover,
-.link:focus {
+.button:hover,
+.button:focus {
   background-color: var(--green-100);
   color: var(--green-200);
 }

@@ -4,7 +4,7 @@ import { visuallyHidden } from '../../styles/utilities.css';
 import styles from './TodoForm.css';
 
 const TodoForm = ({ dispatch }) => {
-  const keyPresshandler = (event) => {
+  const keyPressHandler = (event) => {
     const { target } = event;
     if (event.charCode === 13 && target.value.trim()) {
       dispatch(addTodoAction(target.value));
@@ -14,17 +14,19 @@ const TodoForm = ({ dispatch }) => {
 
   return (
     <form onSubmit={(event) => event.preventDefault()}>
-      <label>
-        <span className={visuallyHidden}>What do you still need to do?</span>
+        <label id='todo-input-label' htmlFor='todo-input' className={visuallyHidden}>
+          What do you still need to do?
+        </label>
         <input
+          id='todo-input'
           className={styles.input}
           type='text'
           maxLength={70}
           placeholder='To do or not to do...'
           autoFocus={true}
-          onKeyPress={keyPresshandler}
+          onKeyPress={keyPressHandler}
+          aria-labelledby='todo-input-label'
         />
-      </label>
     </form>
   );
 };

@@ -17,7 +17,6 @@ const TodoItem = ({
   return (
     <li
       tabIndex={0}
-      role='button'
       className={baseClass}
       onClick={clickToggle}
       onKeyPress={keyPressToggle}
@@ -26,10 +25,18 @@ const TodoItem = ({
         {text}
       </p>
       <div className={styles.meta}>
-        <time dateTime={ISO} className={styles.time}>
+        <time
+          dateTime={ISO}
+          className={styles.time}
+          aria-label={`Added ${timeSince}`}
+        >
           {timeSince}
         </time>
-        <button className={styles.delete} onClick={deleteTodo}>
+        <button
+          className={styles.delete}
+          onClick={deleteTodo}
+          aria-label={`Delete ${text}`}
+        >
           Delete
         </button>
       </div>
@@ -40,7 +47,7 @@ const TodoItem = ({
 TodoItem.displayName = 'TodoItem';
 TodoItem.propTypes = {
   text: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequred,
+  completed: PropTypes.bool.isRequired,
   createdAt: PropTypes.number.isRequired,
   clickToggle: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,

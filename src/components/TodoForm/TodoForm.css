@@ -5,7 +5,7 @@
   font: inherit;
   font-size: 30px;
   font-weight: var(--font-light);
-  padding: var(--viewport-tb-pad) var(--viewport-lr-pad);
+  padding: 20px var(--global-lr-pad);
   width: 100%;
 
   &:focus {

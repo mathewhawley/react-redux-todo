@@ -18,7 +18,7 @@ const FilterButton = ({ active, setFilter, children }) => {
   return (
     <li className={styles.base}>
       <button
-        className={styles.link}
+        className={styles.button}
         onClick={(event) => {
           event.preventDefault();
           setFilter();

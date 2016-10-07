@@ -17,6 +17,7 @@ const TodoItem = ({
   return (
     <li
       tabIndex={0}
+      role='button'
       className={baseClass}
       onClick={clickToggle}
       onKeyPress={keyPressToggle}

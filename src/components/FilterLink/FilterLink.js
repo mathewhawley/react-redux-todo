@@ -5,7 +5,10 @@ const FilterLink = ({ active, setFilter, children }) => {
   if (active) {
     return (
       <li className={styles.base}>
-        <span className={styles.active}>
+        <span
+          className={styles.active}
+          aria-label={`You are currently viewing ${children} to do's`}
+        >
           {children}
         </span>
       </li>
@@ -14,10 +17,15 @@ const FilterLink = ({ active, setFilter, children }) => {
 
   return (
     <li className={styles.base}>
-      <a className={styles.link} href='#' onClick={(event) => {
-        event.preventDefault();
-        setFilter();
-      }}>
+      <a
+        href='#'
+        className={styles.link}
+        onClick={(event) => {
+          event.preventDefault();
+          setFilter();
+        }}
+        aria-label={`View ${children} to do's`}
+      >
         {children}
       </a>
     </li>

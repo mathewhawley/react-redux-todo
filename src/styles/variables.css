@@ -20,8 +20,7 @@
   @custom-media --medium-up (width >= 992px);
   @custom-media --large-up (width >= 1200px);
 
-  --viewport-lr-pad: 15px;
-  --viewport-tb-pad: 20px;
+  --global-lr-pad: 15px;
 
   /*
    * Colors
@@ -30,15 +29,10 @@
   --white: #fff;
   --black: #000;
 
-  --purple-100: #e1bee7;
-  --purple-200: #9b26af;
-  --purple-300: #7a1ea1;
-  --purple-400: #692a99;
-
+  --purple-100: #7a1ea1;
+  --purple-200: #692a99;
   --green-100: #68efad;
   --green-200: #31613f;
-
   --pink-100: #ff4081;
-
   --grey: #616161;
 }

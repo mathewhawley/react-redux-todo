@@ -13,7 +13,11 @@ const TodoForm = ({ dispatch }) => {
 
   return (
     <form onSubmit={(event) => event.preventDefault()}>
-        <label id='todo-input-label' htmlFor='todo-input' className='visuallyHidden'>
+        <label
+          id='todo-input-label'
+          htmlFor='todo-input'
+          className='visuallyHidden'
+        >
           What do you still need to do?
         </label>
         <input

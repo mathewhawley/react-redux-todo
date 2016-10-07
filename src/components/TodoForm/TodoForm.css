@@ -1,7 +1,7 @@
 @import '../../styles/variables.css';
 
 .input {
-  color: var(--grey);
+  color: var(--grey-100);
   font: inherit;
   font-size: 30px;
   font-weight: var(--font-light);

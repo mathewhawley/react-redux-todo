@@ -10,4 +10,5 @@ branches:
     - master
 after_success:
   - npm run coverage
-  - npm run report-coverage
+  - bash <(curl -s https://codecov.io/bash)
+

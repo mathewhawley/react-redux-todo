@@ -1,19 +1,40 @@
-import { ADD_TODO } from '../constants/todoConstants';
+import * as constants from '../constants/todoConstants';
+import {
+  updateObject,
+  updateObjectInArray,
+  createReducer,
+} from '../utils';
 
 const INITIAL_STATE = [];
 
-export const todoReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          text: action.text,
-          id: action.id,
-          completed: false,
-        },
-      ];
-    default:
-      return state;
-  }
+const addTodo = (state, action) => {
+  return [
+    {
+      text: action.text,
+      id: action.id,
+      completed: false,
+      createdAt: action.createdAt,
+    },
+    ...state,
+  ];
 };
+
+const deleteTodo = (state, action) => {
+  return state.filter((todo) => {
+    if (todo.id !== action.id) {
+      return todo;
+    }
+  });
+};
+
+const toggleTodo = (state, action) => {
+  return updateObjectInArray(state, action.id, (item) => {
+    return updateObject(item, { completed: !item.completed });
+  });
+};
+
+export const todoReducer = createReducer(INITIAL_STATE, {
+  [constants.ADD_TODO]: addTodo,
+  [constants.DELETE_TODO]: deleteTodo,
+  [constants.TOGGLE_TODO]: toggleTodo,
+});

@@ -1,0 +1,66 @@
+@import '../../styles/variables.css';
+
+.base {
+  background-color: var(--purple-100);
+  color: var(--white);
+  padding: 20px var(--global-pad);
+  transition: background-color 0.25s ease;
+
+  &:hover,
+  &:focus {
+    background-color: color(var(--purple-100) tint(15%));
+    cursor: pointer;
+  }
+}
+
+.complete {
+  composes: base;
+  background-color: var(--green-100);
+  color: var(--green-200);
+
+  &:hover,
+  &:focus {
+    background-color: color(var(--green-100) shade(15%));
+  }
+}
+
+.text {
+  margin: 0;
+}
+
+.meta {
+  font-size: 14px;
+  font-weight: var(--font-regular);
+  margin-top: 10px;
+}
+
+.time {
+  margin-right: 20px;
+}
+
+.text,
+.time {
+  user-select: none;
+}
+
+.delete {
+  composes: button from '../../styles/mixins.css';
+
+  &:hover,
+  &:focus {
+    background-color: var(--pink-100);
+    color: var(--white);
+  }
+}
+
+@media (--small-up) {
+  .meta {
+    font-size: 16px;
+  }
+}
+
+@media (--medium-up) {
+  .text {
+    max-width: 85%;
+  }
+}

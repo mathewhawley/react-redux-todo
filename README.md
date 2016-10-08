@@ -1,5 +1,5 @@
 # react-redux-todo
-[![Build Status](https://travis-ci.com/mathewhawley/react-redux-todo.svg?token=cfmqWCypBNFkZssyeoWG&branch=master)](https://travis-ci.com/mathewhawley/react-redux-todo)
+[![Build Status](https://travis-ci.com/mathewhawley/react-redux-todo.svg?token=cfmqWCypBNFkZssyeoWG&branch=master)](https://travis-ci.com/mathewhawley/react-redux-todo) [![dependencies Status](https://david-dm.org/mathewhawley/react-redux-todo/status.svg)](https://david-dm.org/mathewhawley/react-redux-todo) [![devDependencies Status](https://david-dm.org/mathewhawley/react-redux-todo/dev-status.svg)](https://david-dm.org/mathewhawley/react-redux-todo?type=dev)
 
 This is a simple, classic 'to do' application that has been built as a learning exercise – to act as an introduction to various technologies and practices that I am keen to explore and potentially work more with going forward.
 

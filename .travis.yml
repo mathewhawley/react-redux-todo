@@ -8,3 +8,6 @@ branches:
   only:
     - develop
     - master
+after_success:
+  - npm run coverage
+  - npm run report-coverage

@@ -32,6 +32,7 @@ describe('todoReducer', () => {
       type: 'UNRECOGNISED_ACTION',
       text: 'Go shopping',
       id: v4(),
+      createdAt: Date.now(),
     };
 
     expect(
@@ -55,18 +56,7 @@ describe('todoReducer', () => {
         completed: false,
         createdAt,
       },
-      {
-        text: 'Hello, world',
-        id: ids[0],
-        completed: false,
-        createdAt: dates[0],
-      },
-      {
-        text: 'Learn React and Redux',
-        id: ids[1],
-        completed: false,
-        createdAt: dates[1],
-      },
+      ...stateBefore,
     ];
 
     expect(
@@ -79,14 +69,7 @@ describe('todoReducer', () => {
       type: constants.DELETE_TODO,
       id: ids[0],
     };
-    const stateAfter = [
-      {
-        text: 'Learn React and Redux',
-        id: ids[1],
-        completed: false,
-        createdAt: dates[1],
-      },
-    ];
+    const stateAfter = [stateBefore[1]];
 
     expect(
       todoReducer(stateBefore, action)
@@ -98,19 +81,10 @@ describe('todoReducer', () => {
       type: constants.TOGGLE_TODO,
       id: ids[1],
     };
+    const updatedTodo = Object.assign({}, stateBefore[1], { completed: true });
     const stateAfter = [
-      {
-        text: 'Hello, world',
-        id: ids[0],
-        completed: false,
-        createdAt: dates[0],
-      },
-      {
-        text: 'Learn React and Redux',
-        id: ids[1],
-        completed: true,
-        createdAt: dates[1],
-      },
+      stateBefore[0],
+      updatedTodo,
     ];
 
     expect(

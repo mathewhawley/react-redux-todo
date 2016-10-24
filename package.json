@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
-    "moment": "^2.15.1",
+    "moment": "^2.15.2",
     "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
     "react": "^15.3.2",

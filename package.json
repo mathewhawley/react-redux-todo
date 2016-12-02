@@ -12,10 +12,10 @@
     "stylelint": "stylelint \"src/**/*.css\"",
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
-    "test": "mocha --require 'tools/lib/testHelpers.js' --compilers js:babel-register 'src/**/*.spec.js'",
+    "test": "mocha",
     "test:watch": "npm test -- --watch --reporter min",
-    "coverage": "istanbul cover -x *.spec.js _mocha -- -R spec --require 'tools/lib/testHelpers.js' --compilers js:babel-register 'src/**/*.spec.js'",
-    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage",
+    "test:coverage": "istanbul cover -x *.spec.js _mocha -- -R spec",
+    "test:report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage",
     "pre-commit-msg": "echo 'Performing pre-commit checks...' && exit 0"
   },
   "author": "Mathew Hawley",

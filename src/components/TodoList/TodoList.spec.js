@@ -6,14 +6,12 @@ import { expect } from 'chai';
 import { v4 } from 'node-uuid';
 import { TodoList } from './TodoList';
 
-const mockTodo = (overrides) => {
-  return {
-    text: 'Hello, world',
-    id: v4(),
-    completed: false,
-    ...overrides,
-  };
-};
+const mockTodo = (overrides) => ({
+  text: 'Hello, world',
+  id: v4(),
+  completed: false,
+  ...overrides,
+});
 
 describe('<TodoList />', () => {
   it('renders the list of todos', () => {

@@ -18,7 +18,7 @@ describe('<TodoForm />', () => {
 
   beforeEach(() => {
     spy = sinon.spy();
-    wrapper = shallow(<TodoForm />);
+    wrapper = shallow(<TodoForm dispatch={spy} />);
   });
 
   it('should have an input field', () => {
@@ -28,16 +28,15 @@ describe('<TodoForm />', () => {
   });
 
   it('should prevent default `submit` behaviour', () => {
-    wrapper.simulate('submit', { preventDefault: spy });
+    const eventSpy = sinon.spy();
+    wrapper.simulate('submit', { preventDefault: eventSpy });
 
     expect(
-      spy.calledOnce
+      eventSpy.calledOnce
     ).to.be.true;
   });
 
-  it('should call dispatch on `Enter` key press', () => {
-    const wrapper = shallow(<TodoForm dispatch={spy} />);
-
+  it('should call handler on `Enter` key press', () => {
     wrapper.find('input').simulate('keypress', event);
 
     expect(
@@ -45,12 +44,11 @@ describe('<TodoForm />', () => {
     ).to.be.true;
   });
 
-  it('should not dispatch on empty or `space` only input', () => {
-    const wrapper = shallow(<TodoForm dispatch={spy} />);
+  it('should not call handler on empty or `space` only input', () => {
     const event = {
       charCode: 13,
       target: {
-        value: '  ',
+        value: ' ',
       },
     };
 

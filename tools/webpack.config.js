@@ -64,7 +64,7 @@ const config = {
     new webpack.HotModuleReplacementPlugin(),
     new StyleLintPlugin({ files: '../src/**/*.css' }),
   ],
-  postcss(bundler) {
+  postcss() {
     return {
       default: [
         require('postcss-import'),

@@ -67,7 +67,7 @@ const config = {
   postcss(bundler) {
     return {
       default: [
-        require('postcss-import')({ addDependencyTo: bundler }),
+        require('postcss-import'),
         require('postcss-custom-properties')(),
         require('postcss-custom-media')(),
         require('postcss-media-minmax')(),
@@ -78,7 +78,6 @@ const config = {
         require('postcss-selector-matches')(),
         require('postcss-selector-not')(),
         require('pleeease-filters')(),
-        require('postcss-pseudo-class-any-link')(),
         require('autoprefixer')(),
       ],
     };
@@ -92,6 +91,7 @@ const devServerConfig = {
   hot: true,
   stats: {
     colors: true,
+    chunks: false,
   },
   compress: true,
 };

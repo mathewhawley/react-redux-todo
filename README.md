@@ -22,13 +22,13 @@ A lot of these are firsts for me – most notably Redux, PostCSS, ESLint and uni
 ## Set up
 Currently, this build is only configured for a development environment. Future steps will look to add a production build and server-side rendering.
 
-To run this application, please make sure you are using at least `v5.0.0` of **Node.js**.
+To run this application, please make sure you are using at least the latest LTS version `>= v6.9.1` of **Node.js**.
 
 Once you have cloned the repository, simply run:
 
 ```
-$ npm install
-$ npm run dev
+$ yarn
+$ yarn dev
 ```
 
 Then open your browser and go to `http://localhost:8080`.

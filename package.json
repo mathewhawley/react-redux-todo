@@ -8,12 +8,12 @@
   "description": "A simple 'To Do' application, built using React and Redux",
   "main": "src/index.js",
   "scripts": {
-    "lint": "npm run stylelint && npm run eslint",
+    "lint": "yarn stylelint && yarn eslint",
     "stylelint": "stylelint \"src/**/*.css\"",
     "eslint": "eslint src tools --cache",
     "dev": "babel-node tools/dev",
     "test": "mocha",
-    "test:watch": "npm test -- --watch --reporter min",
+    "test:watch": "yarn test -- --watch --reporter min",
     "test:coverage": "istanbul cover -x *.spec.js _mocha -- -R spec",
     "test:report": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage",
     "pre-commit-msg": "echo 'Performing pre-commit checks...' && exit 0"
@@ -55,7 +55,6 @@
     "postcss-loader": "^1.1.0",
     "postcss-media-minmax": "^2.1.2",
     "postcss-nesting": "^2.3.1",
-    "postcss-pseudo-class-any-link": "^3.0.0",
     "postcss-selector-matches": "^2.0.5",
     "postcss-selector-not": "^2.0.0",
     "pre-commit": "^1.1.3",

@@ -3,12 +3,12 @@ node_js:
   - "6"
   - "7"
 script:
-  - npm run lint
-  - npm test
+  - yarn lint
+  - yarn test
 branches:
   only:
     - develop
     - master
 after_success:
-  - npm run test:coverage
-  - npm run test:report
+  - yarn test:coverage
+  - yarn test:report

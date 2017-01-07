@@ -73,7 +73,7 @@
     "moment": "^2.15.1",
     "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
-    "react": "^15.3.2",
+    "react": "^15.4.2",
     "react-dom": "^15.3.2",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",

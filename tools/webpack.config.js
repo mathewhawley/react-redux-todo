@@ -21,24 +21,20 @@ const config = {
     filename: 'bundle.js',
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint',
-        include: PATHS.src,
-      },
-    ],
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader',
-          `css-loader?${JSON.stringify({
-            modules: true,
-            sourceMap: true,
-            localIdentName: '[name]__[local]__[hash:base64:5]',
-          })}`,
-          'postcss-loader?pack=default',
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+          { loader: 'postcss-loader' },
         ],
       },
       {
@@ -48,40 +44,22 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: `file-loader?${JSON.stringify({
+        loader: 'file-loader',
+        options: {
           name: '[path][name].[ext]',
-        })}`,
+        },
       },
     ],
   },
   resolve: {
-    root: PATHS.src,
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.jsx'],
+    modules: ['node_modules'],
+    extensions: ['.js', '.jsx'],
   },
   devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new StyleLintPlugin({ files: '../src/**/*.css' }),
   ],
-  postcss() {
-    return {
-      default: [
-        require('postcss-import'),
-        require('postcss-custom-properties')(),
-        require('postcss-custom-media')(),
-        require('postcss-media-minmax')(),
-        require('postcss-custom-selectors')(),
-        require('postcss-calc')(),
-        require('postcss-nesting')(),
-        require('postcss-color-function')(),
-        require('postcss-selector-matches')(),
-        require('postcss-selector-not')(),
-        require('pleeease-filters')(),
-        require('autoprefixer')(),
-      ],
-    };
-  },
 };
 
 const devServerConfig = {

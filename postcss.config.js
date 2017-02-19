@@ -13,4 +13,4 @@ module.exports = {
     require('pleeease-filters')(),
     require('autoprefixer')(),
   ],
-}
+};

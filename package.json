@@ -59,7 +59,7 @@
     "postcss-selector-not": "^2.0.0",
     "pre-commit": "^1.2.1",
     "react-addons-test-utils": "^15.3.2",
-    "sinon": "^1.17.6",
+    "sinon": "^2.0.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.9.0",
     "stylelint-config-css-modules": "^0.1.0",

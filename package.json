@@ -32,7 +32,7 @@
     "babel-preset-stage-3": "^6.22.0",
     "babel-register": "^6.24.0",
     "chai": "^3.5.0",
-    "codacy-coverage": "^2.0.1",
+    "codacy-coverage": "^2.0.2",
     "css-loader": "^0.28.0",
     "del": "^2.2.2",
     "enzyme": "^2.8.0",

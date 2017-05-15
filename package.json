@@ -56,7 +56,7 @@
     "postcss-media-minmax": "^3.0.0",
     "postcss-nesting": "^3.0.0",
     "postcss-selector-matches": "^3.0.0",
-    "postcss-selector-not": "^3.0.0",
+    "postcss-selector-not": "^3.0.1",
     "pre-commit": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
     "sinon": "^2.1.0",
